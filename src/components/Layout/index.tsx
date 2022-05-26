@@ -4,6 +4,7 @@ import LNB from './LNB'
 import Header from './Header'
 
 import styles from './layout.module.scss'
+import PageTitle from 'components/PageTitle'
 
 const Layout = () => {
   return (
@@ -12,6 +13,7 @@ const Layout = () => {
       <div className={styles.mainContainer}>
         <LNB />
         <main>
+          <PageTitle />
           <Outlet />
         </main>
       </div>

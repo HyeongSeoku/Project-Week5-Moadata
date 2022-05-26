@@ -3,19 +3,22 @@ import { useMount } from 'react-use'
 import { useSetRecoilState } from 'recoil'
 
 import userDataJSON from 'data/userdata.json'
+import userLoginDataJSON from 'data/userLoginData.json'
 // import { Dashboard } from './Dashboard'
 // import { Details } from './Details'
 import { Login } from './Login'
 // import { Manage } from './Manage'
 // import { Layout } from 'components'
-import { userDataState } from 'states'
+import { userDataState, userLoginDataState } from 'states'
 import { LoginCheck } from './LoginCheck'
 
 const App = () => {
   const setUserData = useSetRecoilState(userDataState)
+  const setUserLoginData = useSetRecoilState(userLoginDataState)
 
   useMount(() => {
     setUserData(userDataJSON)
+    setUserLoginData(userLoginDataJSON)
   })
 
   return (

@@ -8,8 +8,8 @@ export const LoginCheck = () => {
   const nav = useNavigate()
   const currentUser = useRecoilValue(currentUserState)
   useEffect(() => {
-    if (!currentUser || currentUser === '') nav('/login')
+    if (!currentUser || currentUser.id === '') nav('/login')
   }, [currentUser, nav])
-  if (!currentUser || currentUser === '') return null
+  if (!currentUser || currentUser.id === '') return null
   return <Outlet />
 }

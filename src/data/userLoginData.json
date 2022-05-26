@@ -1,0 +1,22 @@
+[
+	{
+		"id": "ghost1",
+		"member_seq": 380,
+		"create_date": "2022-05-27 11:11:11"
+	},
+	{
+		"id": "ghost2",
+		"member_seq": 381,
+		"create_date": "2022-04-29 12:34:56"
+	},
+	{
+		"id": "gildong",
+		"member_seq": 382,
+		"create_date": "2022-05-30 10:11:29"
+	},
+	{
+		"id": "aaa",
+		"member_seq": 383,
+		"create_date": "2021-11-25 11:55:40"
+	}
+]

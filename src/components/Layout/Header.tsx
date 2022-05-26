@@ -1,3 +1,4 @@
+import Button from 'components/Button'
 import styles from './layout.module.scss'
 
 const Header = () => {
@@ -7,7 +8,7 @@ const Header = () => {
       <div>
         {/* TODO: 로그인한 유저네임 받아오기 */}
         <span>moaadmin1</span>
-        <button type='button'>로그아웃</button>
+        <Button value='로그아웃' size='medium' />
       </div>
     </header>
   )

@@ -1,3 +1,5 @@
+import styles from './userInfo.module.scss'
+
 interface IUserData {
   id: string
   userNumber: number
@@ -8,19 +10,19 @@ const UserInfo = ({ userData }: { userData: IUserData }) => {
   const { id, userNumber, createdAt } = userData
 
   return (
-    <div>
-      <div>
-        <div>로그인ID</div>
-        <div>{id}</div>
-      </div>
-      <div>
-        <div>회원번호</div>
-        <div>{userNumber}</div>
-      </div>
-      <div>
-        <div>가입 일시</div>
-        <div>{createdAt}</div>
-      </div>
+    <div className={styles.userInfo}>
+      <dl className={styles.userInfoItem}>
+        <dt>로그인ID</dt>
+        <dd>{id}</dd>
+      </dl>
+      <dl className={styles.userInfoItem}>
+        <dt>회원번호</dt>
+        <dd>{userNumber}</dd>
+      </dl>
+      <dl className={styles.userInfoItem}>
+        <dt>가입 일시</dt>
+        <dd>{createdAt}</dd>
+      </dl>
     </div>
   )
 }

@@ -1,0 +1,23 @@
+$GRAY: #f2f2f2;
+$BLACK: #000000;
+
+.userInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+
+  &Item {
+    display: flex;
+    gap: 8px;
+
+    * {
+      padding: 8px;
+      border: 1px solid $BLACK;
+    }
+
+    dt {
+      width: 100px;
+      background-color: $GRAY;
+    }
+  }
+}

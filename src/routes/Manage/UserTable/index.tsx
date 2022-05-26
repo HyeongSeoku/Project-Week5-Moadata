@@ -1,7 +1,11 @@
-// TODO : props로 { searchData }: { searchData: ISearchData[] } 추가
-
 import { ISearchData } from 'types/types'
 import TableRow from './TableRow'
+import cx from 'classnames'
+
+import styles from './userTable.module.scss'
+import React from 'react'
+
+// TODO : props로 { searchData }: { searchData: ISearchData[] } 추가
 
 const DUMMY_USER_LIST: ISearchData[] = [
   {
@@ -37,20 +41,33 @@ const DUMMY_USER_LIST: ISearchData[] = [
 ]
 
 const UserTable = () => {
+  const EmptySearchList = React.createElement('span', {}, '일치하는 회원이 없습니다.')
+
+  const CntSearchList = React.createElement(
+    React.Fragment,
+    null,
+    React.createElement('span', null, '전체 총'),
+    React.createElement('span', null, `${DUMMY_USER_LIST.length}`),
+    React.createElement('span', null, '명의 회원이 검색되었습니다.')
+  )
+
+  const MessageElement = DUMMY_USER_LIST.length === 0 ? EmptySearchList : CntSearchList
+
   return (
-    <div>
-      <table>
+    <div className={styles.tableWrapper}>
+      <div>{MessageElement}</div>
+      <table className={styles.table}>
         <thead>
           <tr>
-            <th>회원번호</th>
-            <th>가입일</th>
-            <th>회원상태</th>
-            <th>로그인ID</th>
-            <th>별명</th>
-            <th>생년</th>
-            <th>성별</th>
-            <th>매니저ID</th>
-            <th>상세</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>회원번호</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>가입일</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>회원상태</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>로그인ID</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>별명</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>생년</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>성별</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>매니저ID</th>
+            <th className={cx(styles.tableCol, styles.tableTitle)}>상세</th>
           </tr>
         </thead>
         <tbody>

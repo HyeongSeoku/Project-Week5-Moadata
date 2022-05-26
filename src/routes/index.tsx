@@ -3,7 +3,10 @@ import { useMount } from 'react-use'
 import { useSetRecoilState } from 'recoil'
 
 import userDataJSON from 'data/userdata.json'
-
+import { Dashboard } from './Dashboard'
+import { Details } from './Details'
+import { Login } from './Login'
+import { Manage } from './Manage'
 import { Layout } from 'components'
 import { userDataState } from 'states'
 
@@ -16,6 +19,7 @@ const App = () => {
 
   return (
     <Routes>
+      <Route path='login' element={<Login />} />
       <Route path='/' element={<Layout />}>
         <Route path='/' element={<Dashboard />} />
         <Route path='manage' element={<Manage />} />

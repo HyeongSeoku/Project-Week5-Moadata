@@ -6,4 +6,16 @@
     font-size: 25px;
     font-weight: 600;
   }
+
+  .summary {
+    margin: 0 20px;
+
+    p {
+      font-size: 20px;
+
+      + p {
+        margin-top: 10px;
+      }
+    }
+  }
 }

@@ -11,6 +11,7 @@ interface IProps {
 const StepCountChart = ({ id }: IProps) => {
   const startDate = '2022-04-19'
   const endDate = '2022-04-19'
+  let sumStepCount = 0
   const rawData = stepCountData.filter((item) => item.id === id)
   const chartData = [...rawData[0].step_count]
     .reverse()
@@ -20,6 +21,7 @@ const StepCountChart = ({ id }: IProps) => {
         dayjs(endDate).unix() + 86400 > dayjs(item.crt_ymdt).unix()
     )
   const data = chartData.map((item) => {
+    sumStepCount += item.steps
     return {
       x: item.crt_ymdt,
       y: item.steps,
@@ -30,7 +32,7 @@ const StepCountChart = ({ id }: IProps) => {
       <p className={styles.title}>걸음수</p>
       <VictoryChart
         domainPadding={10}
-        containerComponent={<VictoryContainer responsive={false} width={600} height={400} />}
+        containerComponent={<VictoryContainer responsive={false} width={400} height={300} />}
       >
         <VictoryAxis dependentAxis />
         <VictoryAxis
@@ -43,6 +45,13 @@ const StepCountChart = ({ id }: IProps) => {
         />
         <VictoryBar data={data} />
       </VictoryChart>
+      <div className={styles.summary}>
+        <p>
+          {startDate}
+          {startDate !== endDate ? `-${endDate}` : ''}
+        </p>
+        <p>평균 {Math.floor(sumStepCount / data.length).toLocaleString()} 걸음</p>
+      </div>
     </div>
   )
 }

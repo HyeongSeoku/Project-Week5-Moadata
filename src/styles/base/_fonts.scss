@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+body,
+button,
+input,
+textarea {
+  font-family: Roboto, sans-serif, Arial;
+  font-feature-settings: 'tnum';
+}
+
+input[type='number'] {
+  font-feature-settings: 'tnum';
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+}

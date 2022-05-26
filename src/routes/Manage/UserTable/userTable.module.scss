@@ -1,0 +1,35 @@
+// TODO : color 파일로 편집
+.tableWrapper {
+  padding: 0 10px;
+}
+
+.table {
+  border-collapse: collapse;
+  border: 1px solid;
+
+  th,
+  td {
+    border: 1px solid #444444;
+  }
+
+  .tableTitle {
+    background-color: #f2f1f2;
+  }
+
+  .userNumber {
+    color: #ffa500;
+  }
+
+  .tableCol {
+    width: 200px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .tableBtn {
+    width: 50px;
+    color: #ffffff;
+    background-color: #4673c4;
+    border-radius: 3px;
+  }
+}

@@ -1,30 +1,14 @@
-import { Link } from 'react-router-dom'
-
-import { NotiIcon, SettingIcon } from 'assets/svgs'
-import ProfileImage from 'assets/images/profile.png'
 import styles from './layout.module.scss'
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <ul>
-        <li>
-          <button type='button' className={styles.notification} aria-label='notification'>
-            <NotiIcon />
-          </button>
-        </li>
-        <li>
-          <button type='button' aria-label='notification'>
-            <SettingIcon />
-          </button>
-        </li>
-        <li>
-          <Link to='#' className={styles.profile}>
-            <img src={ProfileImage} alt='profile' />
-            <span>원티드님</span>
-          </Link>
-        </li>
-      </ul>
+      <h1>Back Office</h1>
+      <div>
+        {/* TODO: 로그인한 유저네임 받아오기 */}
+        <span>moaadmin1</span>
+        <button type='button'>로그아웃</button>
+      </div>
     </header>
   )
 }

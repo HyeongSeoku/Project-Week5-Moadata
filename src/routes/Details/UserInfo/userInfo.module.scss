@@ -12,12 +12,17 @@ $BLACK: #000000;
 
     * {
       padding: 8px;
+      text-align: center;
       border: 1px solid $BLACK;
     }
 
     dt {
       width: 100px;
       background-color: $GRAY;
+    }
+
+    dd {
+      width: 180px;
     }
   }
 }

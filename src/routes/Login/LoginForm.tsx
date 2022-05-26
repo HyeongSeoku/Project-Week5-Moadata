@@ -1,14 +1,20 @@
 import { useState, ChangeEvent, FormEvent } from 'react'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { useNavigate } from 'react-router-dom'
+import { useMount } from 'react-use'
+import store from 'store'
 
-import { userLoginDataState } from 'states'
+import { currentUserState, userLoginDataState } from 'states'
 
-import styles from 'login.module.scss'
+import styles from './login.module.scss'
 
 const LoginForm = () => {
   const [id, setID] = useState('')
   const [password, setPassword] = useState('')
   const userData = useRecoilValue(userLoginDataState)
+  const [isLoginFailed, setIsLoginFailed] = useState(false)
+  const [currentUser, setCurrentUser] = useRecoilState(currentUserState)
+  const nav = useNavigate()
 
   const handleIDChange = (e: ChangeEvent<HTMLInputElement>) => {
     setID(e.currentTarget.value)
@@ -19,9 +25,20 @@ const LoginForm = () => {
   }
 
   const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
-    if (userData.filter((v) => v.id === id)) console.log('login success')
-    else console.log('login failed')
+    e.preventDefault()
+    const matchResult = userData.filter((v) => v.id === id)
+    if (matchResult.length === 0) {
+      setIsLoginFailed(true)
+      return
+    }
+    setCurrentUser(matchResult[0])
+    store.set('loginData', matchResult[0])
+    nav('/')
   }
+
+  useMount(() => {
+    if (currentUser.id !== '') nav('/')
+  })
 
   return (
     <form onSubmit={handleLoginSubmit}>
@@ -33,6 +50,8 @@ const LoginForm = () => {
         <label htmlFor='password'>PW</label>
         <input type='password' name='password' value={password} required onChange={handlePasswordChange} />
       </div>
+      {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
+      <button type='submit'>로그인</button>
     </form>
   )
 }

@@ -1,6 +1,6 @@
-import { useRecoilState, useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil'
+import { useRecoilValue, useResetRecoilState } from 'recoil'
 
-import { currentUserState, userDataState, userLoginDataState } from 'states'
+import { currentUserState } from 'states'
 
 import Button from 'components/Button'
 import styles from './layout.module.scss'

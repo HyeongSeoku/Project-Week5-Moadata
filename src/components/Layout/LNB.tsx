@@ -21,6 +21,12 @@ const LNB = () => {
               회원 관리
             </NavLink>
           </li>
+          <li>
+            <NavLink to='details/ghost1' className={({ isActive }) => cx('mainText', { [styles.isActive]: isActive })}>
+              <ManageIcon />
+              임시 디테일페이지로 연결
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </aside>

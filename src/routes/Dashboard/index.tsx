@@ -1,3 +1,3 @@
 export const Dashboard = () => {
-  return <div />
+  return <div className='container'>dashboard</div>
 }

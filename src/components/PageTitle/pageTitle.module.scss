@@ -1,0 +1,14 @@
+@use '/src/styles/constants/colors';
+
+.menuLink {
+  margin-top: 40px;
+  color: colors.$GRAY800;
+
+  a {
+    color: colors.$GRAY800;
+  }
+
+  .arrow {
+    margin: 0 8px;
+  }
+}

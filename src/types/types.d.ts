@@ -13,3 +13,8 @@ export interface IUserLoginData {
   member_seq: number
   create_date: string
 }
+
+export interface PickedDate {
+  start: string
+  end: string
+}

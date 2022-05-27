@@ -1,0 +1,48 @@
+@use '/src/styles/constants/colors';
+
+.searchDate {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 37px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 146px;
+  height: 100%;
+  background-color: #f2f2f2; // 후에 _colors.scss에서 가져올 예정
+  border: 1px solid colors.$BLACK;
+}
+
+.searchDateInputBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  div {
+    margin: 0 10px;
+  }
+
+  input {
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid colors.$BLACK;
+  }
+}
+
+.searchDateBtnBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  margin-left: 20px;
+
+  button {
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+  }
+}

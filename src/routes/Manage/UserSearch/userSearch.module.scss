@@ -5,6 +5,10 @@
 }
 
 .searchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   width: 100%;
   border: 1px solid colors.$BLACK;
 }
@@ -43,6 +47,7 @@
 .buttonBox {
   display: flex;
   justify-content: end;
+  width: 100%;
 }
 
 .searchBtn {

@@ -20,11 +20,11 @@ const App = () => {
   return (
     <Routes>
       <Route path='login' element={<Login />} />
-      <Route path='/' element={<Layout />}>
-        <Route path='/' element={<Dashboard />} />
-        <Route path='manage' element={<Manage />} />
-        <Route path='details/:id' element={<Details />} />
-      </Route>
+      {/* <Route path='/' element={<Layout />}> */}
+      {/* <Route path='/' element={<Dashboard />} /> */}
+      {/* <Route path='manage' element={<Manage />} /> */}
+      <Route path='details/:id' element={<Details />} />
+      {/* </Route> */}
       <Route path='*' element={<div>404</div>} />
     </Routes>
   )

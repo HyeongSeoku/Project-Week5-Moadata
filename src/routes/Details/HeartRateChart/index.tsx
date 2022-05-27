@@ -3,22 +3,23 @@ import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine } from 'victor
 
 import styles from './heartRateChart.module.scss'
 import heartRateData from 'data/heartRate.json'
+import { useState } from 'react'
+import SearchDate from 'components/SearchDate'
 
 interface IProps {
   id: number
 }
 const HearRateChart = ({ id }: IProps) => {
-  const startDate = '2022-02-26'
-  const endDate = '2022-02-26'
+  const [date, setDate] = useState({ start: '', end: '' })
   const rawData = heartRateData.filter((item) => item.id === id)
   let sumHeatRate = 0
-  const chartData = [...rawData[0].heart_rate]
-    .reverse()
-    .filter(
-      (item) =>
-        dayjs(startDate).unix() <= dayjs(item.crt_ymdt).unix() &&
-        dayjs(endDate).unix() + 86400 > dayjs(item.crt_ymdt).unix()
+  const chartData = [...rawData[0].heart_rate].reverse().filter((item) => {
+    if (date.start === '') return true
+    return (
+      dayjs(date.start).unix() <= dayjs(item.crt_ymdt).unix() &&
+      dayjs(date.end).unix() + 86400 > dayjs(item.crt_ymdt).unix()
     )
+  })
   const data = chartData.map((item) => {
     sumHeatRate += item.avg_beat
     return {
@@ -38,12 +39,17 @@ const HearRateChart = ({ id }: IProps) => {
         <VictoryLine data={data} />
       </VictoryChart>
       <div className={styles.summary}>
-        <p>
-          {startDate}
-          {startDate !== endDate ? `-${endDate}` : ''}
-        </p>
-        <p>평균 {Math.floor(sumHeatRate / data.length).toLocaleString()} bpm</p>
+        {date.start === '' ? (
+          <p>모든 날짜 선택됨</p>
+        ) : (
+          <p>
+            {date.start}
+            {date.end !== date.start ? `-${date.end}` : ''}
+          </p>
+        )}
+        <p>평균 {Math.floor(data.length > 0 ? sumHeatRate / data.length : 0).toLocaleString()} bpm</p>
       </div>
+      <SearchDate date={date} setDate={setDate} />
     </div>
   )
 }

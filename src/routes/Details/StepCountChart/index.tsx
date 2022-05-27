@@ -3,23 +3,24 @@ import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer } from 'victory
 
 import stepCountData from 'data/stepCount.json'
 import styles from './stepCountChart.module.scss'
+import { useState } from 'react'
+import SearchDate from 'components/SearchDate'
 
 interface IProps {
   id: number
 }
 
 const StepCountChart = ({ id }: IProps) => {
-  const startDate = '2022-04-19'
-  const endDate = '2022-04-19'
+  const [date, setDate] = useState({ start: '', end: '' })
   let sumStepCount = 0
   const rawData = stepCountData.filter((item) => item.id === id)
-  const chartData = [...rawData[0].step_count]
-    .reverse()
-    .filter(
-      (item) =>
-        dayjs(startDate).unix() <= dayjs(item.crt_ymdt).unix() &&
-        dayjs(endDate).unix() + 86400 > dayjs(item.crt_ymdt).unix()
+  const chartData = [...rawData[0].step_count].reverse().filter((item) => {
+    if (date.start === '') return true
+    return (
+      dayjs(date.start).unix() <= dayjs(item.crt_ymdt).unix() &&
+      dayjs(date.end).unix() + 86400 > dayjs(item.crt_ymdt).unix()
     )
+  })
   const data = chartData.map((item) => {
     sumStepCount += item.steps
     return {
@@ -46,12 +47,17 @@ const StepCountChart = ({ id }: IProps) => {
         <VictoryBar data={data} />
       </VictoryChart>
       <div className={styles.summary}>
-        <p>
-          {startDate}
-          {startDate !== endDate ? `-${endDate}` : ''}
-        </p>
+        {date.start === '' ? (
+          <p>모든 날짜 선택됨</p>
+        ) : (
+          <p>
+            {date.start}
+            {date.end !== date.start ? `-${date.end}` : ''}
+          </p>
+        )}
         <p>평균 {Math.floor(sumStepCount / data.length).toLocaleString()} 걸음</p>
       </div>
+      <SearchDate date={date} setDate={setDate} />
     </div>
   )
 }

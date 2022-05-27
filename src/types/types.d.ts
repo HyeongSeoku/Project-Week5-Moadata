@@ -14,7 +14,7 @@ export interface IUserLoginData {
   create_date: string
 }
 
-export interface PikedDate {
+export interface PickedDate {
   start: string
   end: string
 }

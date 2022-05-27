@@ -1,22 +1,34 @@
-import { ChangeEvent } from 'react'
-import { useRecoilState } from 'recoil'
-import { pikedDate } from 'states/pickedDate'
-import styles from './searchDate.moduel.scss'
+import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { PickedDate } from 'types/types'
+import styles from './searchDate.module.scss'
 
-const SearchDate = () => {
-  const [date, setDate] = useRecoilState(pikedDate)
+interface Props {
+  date: PickedDate
+  setDate: Dispatch<SetStateAction<PickedDate>>
+}
+
+const SearchDate = (props: Props) => {
+  const { date, setDate } = props
+
+  const getToday = () => {
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = `0${1 + today.getMonth()}`.slice(-2)
+    const day = `0${today.getDate()}`.slice(-2)
+
+    return `${year}-${month}-${day}`
+  }
   const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
     setDate((prev) => ({ ...prev, [name]: value }))
   }
   const handleTodayClick = () => {
-    const today = new Date('yyyy-mm-dd')
-    setDate({ start: String(today), end: String(today) })
+    setDate({ start: getToday(), end: getToday() })
   }
   return (
     <div className={styles.searchDate}>
       <div className={styles.title}>조회기간</div>
-      <div className={styles.searchDateInput}>
+      <div className={styles.searchDateInputBox}>
         <input type='date' value={date.start} name='start' onChange={handleDateChange} />
         <div>~</div>
         <input type='date' value={date.end} name='end' onChange={handleDateChange} />

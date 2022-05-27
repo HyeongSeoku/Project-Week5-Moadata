@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { useMount } from 'react-use'
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import store from 'store'
 
 import userDataJSON from 'data/userdata.json'
@@ -16,8 +16,7 @@ import { LoginCheck } from './LoginCheck'
 const App = () => {
   const setUserData = useSetRecoilState(userDataState)
   const setUserLoginData = useSetRecoilState(userLoginDataState)
-  const [currentUser, setCurrentUser] = useRecoilState(currentUserState)
-  const resetCurrentUser = useResetRecoilState(currentUserState)
+  const setCurrentUser = useSetRecoilState(currentUserState)
 
   useMount(() => {
     const currentUserDataLocal = store.get('loginData')
@@ -25,11 +24,6 @@ const App = () => {
     setUserData(userDataJSON)
     setUserLoginData(userLoginDataJSON)
   })
-
-  const handleLogoutButton = () => {
-    resetCurrentUser()
-    store.remove('loginData')
-  }
 
   return (
     <Routes>

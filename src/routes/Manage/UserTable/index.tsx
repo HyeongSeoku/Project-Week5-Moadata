@@ -10,7 +10,7 @@ import React from 'react'
 const DUMMY_USER_LIST: ISearchData[] = [
   {
     userNumber: 2,
-    createdAt: '2022-03-02',
+    createdAt: '2022-03-02 12:34:56',
     userStatus: '정상 회원',
     id: 'minsu12',
     nickname: '건강최고',
@@ -20,7 +20,7 @@ const DUMMY_USER_LIST: ISearchData[] = [
   },
   {
     userNumber: 3,
-    createdAt: '2022-02-02',
+    createdAt: '2022-02-02 12:34:56',
     userStatus: '휴면 회원',
     id: 'jisu22',
     nickname: '건강왕',
@@ -30,7 +30,7 @@ const DUMMY_USER_LIST: ISearchData[] = [
   },
   {
     userNumber: 7,
-    createdAt: '2020-01-02',
+    createdAt: '2020-01-02 12:34:56',
     userStatus: '정상 회원',
     id: 'koko110',
     nickname: '코코호도',

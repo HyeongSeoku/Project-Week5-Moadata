@@ -41,17 +41,26 @@ export const Login = () => {
   })
 
   return (
-    <form onSubmit={handleLoginSubmit}>
-      <div className={styles.loginFormSegment}>
-        <label htmlFor='id'>ID</label>
-        <input type='text' name='id' value={id} required onChange={handleIDChange} />
-      </div>
-      <div className={styles.loginFormSegment}>
-        <label htmlFor='password'>PW</label>
-        <input type='password' name='password' value={password} required onChange={handlePasswordChange} />
-      </div>
-      {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
-      <button type='submit'>로그인</button>
-    </form>
+    <div className={styles.loginWrapper}>
+      <header>
+        <h1 className={styles.loginHeader}>백오피스</h1>
+      </header>
+      <main>
+        <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
+          <div className={styles.loginFormSegment}>
+            <label htmlFor='id'>ID</label>
+            <input type='text' name='id' value={id} required onChange={handleIDChange} />
+          </div>
+          <div className={styles.loginFormSegment}>
+            <label htmlFor='password'>PW</label>
+            <input type='password' name='password' value={password} required onChange={handlePasswordChange} />
+          </div>
+          {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
+          <button type='submit' className={styles.loginButton}>
+            로그인
+          </button>
+        </form>
+      </main>
+    </div>
   )
 }

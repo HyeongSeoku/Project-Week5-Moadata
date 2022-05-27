@@ -1,20 +1,38 @@
 [
-	{
-		"seq" : 278293,
-		"member_seq" : 380,
-		"steps" : 4192,
-		"minutes" : 56,
-		"distance" : 2.9237268000,
-		"calorie" : 138.1705600000,
-		"crt_ymdt" : "2022-04-19 17:51:29"
-	},
-	{
-		"seq" : 278291,
-		"member_seq" : 380,
-		"steps" : 4126,
-		"minutes" : 55,
-		"distance" : 2.8776950000,
-		"calorie" : 135.9951600000,
-		"crt_ymdt" : "2022-04-19 17:41:29"
-	}
+  {
+    "seq" : 278293,
+    "member_seq" : 380,
+    "steps" : 4192,
+    "minutes" : 56,
+    "distance" : 2.9237268000,
+    "calorie" : 138.1705600000,
+    "crt_ymdt" : "2022-05-27 11:11:11"
+  },
+  {
+    "seq" : 278291,
+    "member_seq" : 381,
+    "steps" : 4126,
+    "minutes" : 55,
+    "distance" : 2.8776950000,
+    "calorie" : 135.9951600000,
+    "crt_ymdt" : "2022-04-29 12:34:56"
+  },
+  {
+    "seq" : 278294,
+    "member_seq" : 382,
+    "steps" : 1345436,
+    "minutes" : 1,
+    "distance" : 124235.50099,
+    "calorie" : 99999.99999,
+    "crt_ymdt" : "2022-05-30 10:11:29"
+  },
+  {
+    "seq" : 278295,
+    "member_seq" : 383,
+    "steps" : 235124,
+    "minutes" : 325243,
+    "distance" : 10.2343,
+    "calorie" : 1823.1345,
+	"crt_ymdt": "2021-11-25 11:55:40"
+  }
 ]

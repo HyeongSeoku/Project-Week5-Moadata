@@ -1,0 +1,60 @@
+@use 'styles/mixins/flexbox';
+@use 'styles/constants/colors';
+
+.loginWrapper {
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loginHeader {
+  margin-bottom: 40px;
+  font-size: 50px;
+}
+
+.loginForm {
+  @include flexbox.flexbox(center, center);
+  flex-direction: column;
+
+  .loginFormSegment {
+    @include flexbox.flexbox(center, center);
+    flex-direction: row;
+    margin-bottom: 20px;
+
+    label {
+      @include flexbox.flexbox(center, center);
+      width: 60px;
+      height: 40px;
+      padding: 8px;
+      margin-right: 5px;
+      text-align: center;
+      background-color: colors.$LOGIN_BACKGROUND;
+      border: 1px solid colors.$BLACK;
+      border-radius: 8px;
+    }
+
+    input {
+      padding: 8px;
+      text-align: center;
+      background-color: colors.$LOGIN_BACKGROUND;
+      border: 1px solid colors.$LOGIN_BORDER;
+      border-radius: 8px;
+    }
+  }
+
+  .loginButton {
+    @include flexbox.flexbox(center, center);
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: colors.$LOGIN_SUBMIT_BACKGROUND;
+    border: 1px solid colors.$LOGIN_SUBMIT_BORDER;
+  }
+
+  .loginFailed {
+    font-size: 20px;
+    color: colors.$LOGIN_FAILED;
+  }
+}

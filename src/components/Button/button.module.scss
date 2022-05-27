@@ -1,0 +1,28 @@
+@use '/src/styles/constants/colors';
+
+button {
+  font-size: 16px;
+  color: colors.$WHITE;
+  background-color: colors.$PRIMARY;
+  border-radius: 5px;
+
+  &.large {
+    width: 100px;
+    height: 40px;
+  }
+
+  &.medium {
+    width: 80px;
+    height: 40px;
+  }
+
+  &.small {
+    width: 52px;
+    height: 32px;
+  }
+
+  &:active {
+    background-color: colors.$BUTTON_PRESSED;
+    opacity: 0.9;
+  }
+}

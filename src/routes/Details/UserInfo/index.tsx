@@ -1,13 +1,11 @@
+import { useRecoilValue } from 'recoil'
+import { userLoginDataState } from 'states'
+
 import styles from './userInfo.module.scss'
 
-interface IUserData {
-  id: string
-  userNumber: number
-  createdAt: string
-}
-
-const UserInfo = ({ userData }: { userData: IUserData }) => {
-  const { id, userNumber, createdAt } = userData
+const UserInfo = ({ id }: { id: string }) => {
+  const userLoginData = useRecoilValue(userLoginDataState)
+  const filterData = userLoginData.filter((item) => item.id === id)[0]
 
   return (
     <div className={styles.userInfo}>
@@ -17,11 +15,11 @@ const UserInfo = ({ userData }: { userData: IUserData }) => {
       </dl>
       <dl className={styles.userInfoItem}>
         <dt>회원번호</dt>
-        <dd>{userNumber}</dd>
+        <dd>{filterData.member_seq}</dd>
       </dl>
       <dl className={styles.userInfoItem}>
         <dt>가입 일시</dt>
-        <dd>{createdAt}</dd>
+        <dd>{filterData.create_date}</dd>
       </dl>
     </div>
   )

@@ -1,27 +1,27 @@
-import SearchDate from 'components/SearchDate'
 import { FormEvent, ChangeEvent, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 
-import { searchedUserInfo } from './atom'
+import { searchedUserInfo } from '../../../store/atom'
+
+import SearchDate from 'components/SearchDate'
 
 import styles from './userSearch.module.scss'
 
 const UserSearch = () => {
+  const setSearchUserInfo = useSetRecoilState(searchedUserInfo)
+  const [userID, setUserID] = useState('')
+  const [userNumber, setUserNumber] = useState('')
   const [date, setDate] = useState({
     start: '',
     end: '',
   })
 
-  const [userID, setUserID] = useState('')
-  const [userNumber, setUserNumber] = useState('')
-  // const [searchDate searchDate] = useState('')
-  const setSearchUserInfo = useSetRecoilState(searchedUserInfo)
-
   const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSearchUserInfo({ userID, userNumber: Number(userNumber) })
+    setSearchUserInfo({ userID, userNumber: Number(userNumber), date })
     setUserID('')
     setUserNumber('')
+    setDate({ start: '', end: '' })
   }
 
   const handleUserIdInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +35,7 @@ const UserSearch = () => {
   const handleResetClick = () => {
     setUserID('')
     setUserNumber('')
+    setDate({ start: '', end: '' })
   }
 
   return (

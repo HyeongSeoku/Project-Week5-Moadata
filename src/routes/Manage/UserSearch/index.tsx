@@ -56,6 +56,7 @@ const UserSearch = () => {
           </div>
         </div>
         <SearchDate date={date} setDate={setDate} />
+
         <div className={styles.buttonBox}>
           <button className={styles.searchBtn} type='button' onClick={handleResetClick}>
             필터 초기화

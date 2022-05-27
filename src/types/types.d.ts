@@ -7,3 +7,14 @@ export interface IUserData {
   calorie: number
   crt_ymdt: string
 }
+
+export interface IUserLoginData {
+  id: string
+  member_seq: number
+  create_date: string
+}
+
+export interface PikedDate {
+  start: string
+  end: string
+}

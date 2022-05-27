@@ -2,7 +2,6 @@ import { FormEvent, ChangeEvent, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 
 import { searchedUserInfo } from './atom'
-import SearchDate from './SearchDate'
 
 import styles from './userSearch.module.scss'
 
@@ -50,7 +49,6 @@ const UserSearch = () => {
             />
           </div>
         </div>
-        <SearchDate />
         <div className={styles.buttonBox}>
           <button className={styles.searchBtn} type='button' onClick={handleResetClick}>
             필터 초기화

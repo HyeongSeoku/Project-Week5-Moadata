@@ -1,4 +1,1 @@
-
-import Layout from './Layout'
-
-export { Layout }
+import UserSearch from 'routes/Manage/UserSearch'

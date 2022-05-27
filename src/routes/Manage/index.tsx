@@ -1,3 +1,5 @@
+import UserSearch from './UserSearch'
+
 export const Manage = () => {
-  return <div />
+  return <UserSearch />
 }

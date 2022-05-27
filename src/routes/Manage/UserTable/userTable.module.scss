@@ -27,9 +27,14 @@
   }
 
   .tableBtn {
-    width: 50px;
+    width: 42px;
+    padding: 3px 0;
     color: #ffffff;
     background-color: #4673c4;
     border-radius: 3px;
+
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

@@ -1,6 +1,7 @@
-import { ChangeEvent, Dispatch, SetStateAction } from 'react'
+import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react'
 import { PickedDate } from 'types/types'
 import styles from './searchDate.module.scss'
+import { getAfterWeek, getToday } from './utils/dateCalc'
 
 interface Props {
   date: PickedDate
@@ -10,20 +11,21 @@ interface Props {
 const SearchDate = (props: Props) => {
   const { date, setDate } = props
 
-  const getToday = () => {
-    const today = new Date()
-    const year = today.getFullYear()
-    const month = `0${1 + today.getMonth()}`.slice(-2)
-    const day = `0${today.getDate()}`.slice(-2)
-
-    return `${year}-${month}-${day}`
-  }
   const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget
     setDate((prev) => ({ ...prev, [name]: value }))
   }
-  const handleTodayClick = () => {
-    setDate({ start: getToday(), end: getToday() })
+  const handleTodayClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const { btn } = e.currentTarget.dataset
+    if (btn === 'today') {
+      setDate({ start: getToday(), end: getToday() })
+    }
+    if (btn === 'week') {
+      setDate({ start: getToday(), end: getAfterWeek() })
+    }
+    if (btn === 'all') {
+      setDate({ start: '', end: '' })
+    }
   }
   return (
     <div className={styles.searchDate}>
@@ -34,11 +36,15 @@ const SearchDate = (props: Props) => {
         <input type='date' value={date.end} name='end' onChange={handleDateChange} />
       </div>
       <div className={styles.searchDateBtnBox}>
-        <button type='button' onClick={handleTodayClick}>
+        <button type='button' data-btn='today' onClick={handleTodayClick}>
           오늘
         </button>
-        <button type='button'>1주일</button>
-        <button type='button'>전체</button>
+        <button type='button' data-btn='week' onClick={handleTodayClick}>
+          1주일
+        </button>
+        <button type='button' data-btn='all' onClick={handleTodayClick}>
+          전체
+        </button>
       </div>
     </div>
   )

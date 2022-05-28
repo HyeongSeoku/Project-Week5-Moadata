@@ -8,16 +8,10 @@ export interface IUserData {
   crt_ymdt: string
 }
 
-// 임의로 정한 유저 상세 정보 타입
-interface ISearchData {
+interface ISearchedUser {
+  userID: string
   userNumber: number
-  createdAt: string
-  userStatus: string
-  id: string
-  nickname: string
-  birth: string
-  gender: '남' | '여'
-  managerId: string | null
+  date: { start: string; end: string }
 }
 export interface IUserLoginData {
   id: string

@@ -1,6 +1,9 @@
-// TODO : color 파일로 편집
+@use '/src/styles/constants/colors';
+
 .tableWrapper {
-  padding: 0 10px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 1px solid;
 }
 
 .table {
@@ -9,7 +12,7 @@
 
   th,
   td {
-    border: 1px solid #444444;
+    border: 1px solid colors.$TABLE_ROW;
   }
 
   .tableTitle {
@@ -17,11 +20,11 @@
   }
 
   .userNumber {
-    color: #ffa500;
+    color: colors.$TABLE_USER_NUMBER;
   }
 
   .tableCol {
-    width: 200px;
+    width: 400px;
     padding: 5px;
     text-align: center;
   }
@@ -29,8 +32,8 @@
   .tableBtn {
     width: 42px;
     padding: 3px 0;
-    color: #ffffff;
-    background-color: #4673c4;
+    color: colors.$TABLE_TITLE_BACKGROUND;
+    background-color: colors.$PRIMARY;
     border-radius: 3px;
 
     &:hover {

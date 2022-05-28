@@ -29,7 +29,7 @@
   min-width: 65px;
   height: 37px;
   padding-top: 10px;
-  background-color: #f2f2f2; // 후에 _colors.scss에서 가져올 예정
+  background-color: colors.$SEARCH_TITLE_BACKGROUND; // 후에 _colors.scss에서 가져올 예정
   border: 1px solid colors.$BLACK;
 }
 
@@ -57,7 +57,7 @@
   margin-right: 25px;
   color: colors.$WHITE;
   text-align: center;
-  background: #4f71be; // 후에 _colors.scss에서 가져올 예정
+  background: colors.$PRIMARY;
   border-radius: 5px;
 
   &:last-child {

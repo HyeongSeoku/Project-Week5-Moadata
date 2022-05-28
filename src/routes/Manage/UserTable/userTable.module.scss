@@ -1,0 +1,43 @@
+@use '/src/styles/constants/colors';
+
+.tableWrapper {
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: 1px solid;
+}
+
+.table {
+  border-collapse: collapse;
+  border: 1px solid;
+
+  th,
+  td {
+    border: 1px solid colors.$TABLE_ROW;
+  }
+
+  .tableTitle {
+    background-color: #f2f1f2;
+  }
+
+  .userNumber {
+    color: colors.$TABLE_USER_NUMBER;
+  }
+
+  .tableCol {
+    width: 400px;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .tableBtn {
+    width: 42px;
+    padding: 3px 0;
+    color: colors.$TABLE_TITLE_BACKGROUND;
+    background-color: colors.$PRIMARY;
+    border-radius: 3px;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

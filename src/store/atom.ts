@@ -1,10 +1,5 @@
 import { atom } from 'recoil'
-
-interface ISearchedUser {
-  userID: string
-  userNumber: number
-  date: object
-}
+import { ISearchedUser } from 'types/types'
 
 export const searchedUserInfo = atom<ISearchedUser>({
   key: 'searchedUserInfo',

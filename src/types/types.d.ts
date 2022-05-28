@@ -19,3 +19,13 @@ interface ISearchData {
   gender: '남' | '여'
   managerId: string | null
 }
+export interface IUserLoginData {
+  id: string
+  member_seq: number
+  create_date: string
+}
+
+export interface PickedDate {
+  start: string
+  end: string
+}

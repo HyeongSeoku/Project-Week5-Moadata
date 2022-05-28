@@ -5,7 +5,6 @@ import { RecoilRoot } from 'recoil'
 
 import reportWebVitals from './reportWebVitals'
 import './styles/index.scss'
-import './styles/global.scss'
 
 import Routes from './routes'
 

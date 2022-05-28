@@ -1,0 +1,66 @@
+@use '/src/styles/constants/colors';
+
+.searchTitle {
+  margin-bottom: 18px;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid colors.$BLACK;
+}
+
+.inputBox {
+  display: flex;
+  text-align: center;
+
+  .inputNumBox {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.title {
+  width: 100px;
+  min-width: 65px;
+  height: 37px;
+  padding-top: 10px;
+  background-color: #f2f2f2; // 후에 _colors.scss에서 가져올 예정
+  border: 1px solid colors.$BLACK;
+}
+
+.input {
+  width: 180px;
+  height: 37px;
+  padding: 10px;
+  border: 1px solid colors.$BLACK;
+
+  &::placeholder {
+    text-align: center;
+  }
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.searchBtn {
+  width: 80px;
+  height: 35px;
+  margin-top: 15px;
+  margin-right: 25px;
+  color: colors.$WHITE;
+  text-align: center;
+  background: #4f71be; // 후에 _colors.scss에서 가져올 예정
+  border-radius: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

@@ -56,14 +56,14 @@ const UserTable = () => {
     return filterSearchUser(searchUserInfo)
   }, [searchUserInfo])
 
-  const EmptySearchList = React.createElement('span', {}, '일치하는 회원이 없습니다.')
+  const EmptySearchList = <span>일치하는 회원이 없습니다.</span>
 
-  const CntSearchList = React.createElement(
-    React.Fragment,
-    null,
-    React.createElement('span', null, '전체 총'),
-    React.createElement('span', null, `${tableData.length}`),
-    React.createElement('span', null, '명의 회원이 검색되었습니다.')
+  const CntSearchList = (
+    <>
+      <span>전체 총</span>
+      <span>{tableData.length}</span>
+      <span>명의 회원이 검색 되었습니다.</span>
+    </>
   )
 
   const MessageElement = tableData.length === 0 ? EmptySearchList : CntSearchList

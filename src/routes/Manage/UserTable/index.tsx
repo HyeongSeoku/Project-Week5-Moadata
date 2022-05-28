@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import cx from 'classnames'
-import { ISearchedUser, IUserLoginData } from 'types/types'
+import React, { useMemo } from 'react'
 import { useRecoilValue } from 'recoil'
-import { searchedUserInfo } from 'store/atom'
-import userLoginDataJSON from 'data/userLoginData.json'
+import cx from 'classnames'
+import dayjs from 'dayjs'
 
 import TableRow from './TableRow'
+import { searchedUserInfo } from 'store/atom'
+import { ISearchedUser } from 'types/types'
+import userLoginDataJSON from 'data/userLoginData.json'
 
 import styles from './userTable.module.scss'
 
@@ -28,7 +29,11 @@ const UserTable = () => {
       const { date: dateKeyword } = data
       // 비어있을 경우 모든 조건에 true
       if (dateKeyword.start === '' && dateKeyword.end === '') return true
-      if (targetDate >= dateKeyword.start && targetDate <= dateKeyword.end) return true
+      if (
+        targetDate >= dayjs(dateKeyword.start).format('YYYY-MM-DD') &&
+        targetDate <= dayjs(dateKeyword.end).format('YYYY-MM-DD')
+      )
+        return true
       return false
     }
 

@@ -14,8 +14,9 @@ const UserTable = () => {
   const searchUserInfo = useRecoilValue(searchedUserInfo)
 
   const filterSearchUser = (data: ISearchedUser) => {
-    // 모든 검색어 입력이 안됐을 경우 빈배열 리턴
-    if (data.userID === '' && data.userNumber === 0 && data.date.start === '' && data.date.end === '') return []
+    // 모든 검색어 입력이 안됐을 경우 모든 회원 리스트 리턴
+    if (data.userID === '' && data.userNumber === 0 && data.date.start === '' && data.date.end === '')
+      return userLoginDataJSON
 
     const matchId = (targetId: string) => {
       const { userID: idKeyword } = data

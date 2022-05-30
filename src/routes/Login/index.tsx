@@ -14,6 +14,7 @@ export const Login = () => {
   const userData = useRecoilValue(userLoginDataState)
   const [isLoginFailed, setIsLoginFailed] = useState(false)
   const [currentUser, setCurrentUser] = useRecoilState(currentUserState)
+  const [isRememberChecked, setIsRememberChecked] = useState(false)
   const nav = useNavigate()
 
   const handleIDChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +25,10 @@ export const Login = () => {
     setPassword(e.currentTarget.value)
   }
 
+  const handleRememberChange = () => {
+    setIsRememberChecked((prevState) => !prevState)
+  }
+
   const handleLoginSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const matchResult = userData.filter((v) => v.id === id)
@@ -32,7 +37,7 @@ export const Login = () => {
       return
     }
     setCurrentUser(matchResult[0])
-    store.set('loginData', matchResult[0])
+    if (isRememberChecked) store.set('loginData', matchResult[0])
     nav('/')
   }
 
@@ -42,24 +47,37 @@ export const Login = () => {
 
   return (
     <div className={styles.loginWrapper}>
-      <header>
-        <h1 className={styles.loginHeader}>백오피스</h1>
-      </header>
-      <main>
+      <nav className={styles.loginHeader}>
+        <h1>백오피스</h1>
+        <p>다시 오신 것을 환영합니다!</p>
+      </nav>
+      <main className={styles.loginMain}>
         <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
           <div className={styles.loginFormSegment}>
             <label htmlFor='id'>ID</label>
-            <input type='text' name='id' value={id} required onChange={handleIDChange} />
+            <input type='text' name='id' value={id} required placeholder='id' onChange={handleIDChange} />
           </div>
           <div className={styles.loginFormSegment}>
-            <label htmlFor='password'>PW</label>
-            <input type='password' name='password' value={password} required onChange={handlePasswordChange} />
+            <label htmlFor='password'>Password</label>
+            <input
+              type='password'
+              name='password'
+              placeholder='password'
+              value={password}
+              required
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className={styles.loginRemember}>
+            <input type='checkbox' name='isRemember' checked={isRememberChecked} onChange={handleRememberChange} />
+            <label htmlFor='isRemember'>자동 로그인</label>
           </div>
           {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
           <button type='submit' className={styles.loginButton}>
             로그인
           </button>
         </form>
+        <span>비밀번호를 잊어버리셨나요?</span>
       </main>
     </div>
   )

@@ -70,14 +70,14 @@ export const Login = () => {
               required
               onChange={handlePasswordChange}
             />
-            <div className={styles.loginRemember}>
+            {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
+            <div className={styles.loginBottom}>
               <input type='checkbox' name='isRemember' checked={isRememberChecked} onChange={handleRememberChange} />
               <label htmlFor='isRemember'>자동 로그인</label>
+              <button type='submit' className={styles.loginButton}>
+                로그인
+              </button>
             </div>
-            {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
-            <button type='submit' className={styles.loginButton}>
-              로그인
-            </button>
           </form>
           <span>비밀번호를 잊어버리셨나요?</span>
         </main>

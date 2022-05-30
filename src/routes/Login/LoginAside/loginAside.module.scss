@@ -1,25 +1,25 @@
 @use 'styles/mixins/flexbox';
 @use 'styles/constants/colors';
+@use 'styles/mixins/responsive';
 
 .loginHeader {
   @include flexbox.flexbox(center, center);
+  flex: 1;
   flex-direction: column;
-  width: 25vw;
   height: 100%;
-  margin: 0 50px 0 0;
   background-color: colors.$SECONDARY;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
 
   .loginIcon {
     @include flexbox.flexbox(center, center);
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-bottom: 20px;
     background-color: white;
     border-radius: 50%;
 
     svg {
-      width: 50px;
+      width: 70px;
       margin-left: 5px;
 
       path {
@@ -30,7 +30,7 @@
 
   h1 {
     margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 30px;
     color: colors.$LOGIN_TITLE;
   }
 
@@ -38,10 +38,9 @@
     color: colors.$LOGIN_TITLE;
   }
 
-  @media screen and (max-width: 768px) {
-    width: 80vw;
-    height: 40%;
-    margin: 0 0 30px;
-    border-radius: 10px 10px 0 0;
+  @include responsive.mobileOnly {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
   }
 }

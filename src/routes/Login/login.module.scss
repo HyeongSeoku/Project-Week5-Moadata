@@ -7,56 +7,8 @@
   width: 100vw;
   height: 100vh;
 
-  .loginHeader {
-    @include flexbox.flexbox(center, center);
-    flex-direction: column;
-    width: 40vw;
-    height: 100%;
-    margin: 0 50px 0 0;
-    background-color: colors.$SECONDARY;
-
-    .loginIcon {
-      @include flexbox.flexbox(center, center);
-      width: 80px;
-      height: 80px;
-      margin-bottom: 20px;
-      background-color: white;
-      border-radius: 50%;
-
-      svg {
-        width: 50px;
-        margin-left: 5px;
-
-        path {
-          fill: colors.$LOGIN_ICON;
-        }
-      }
-    }
-
-    h1 {
-      margin-bottom: 20px;
-      font-size: 40px;
-      color: colors.$LOGIN_TITLE;
-    }
-
-    p {
-      color: colors.$LOGIN_TITLE;
-    }
-  }
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
-
-    .loginHeader {
-      width: 100vw;
-      height: 40%;
-      margin: 0 0 30px;
-    }
-
-    .loginMain,
-    .loginForm {
-      @include flexbox.flexbox(center, center);
-    }
   }
 }
 

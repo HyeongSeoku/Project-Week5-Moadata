@@ -7,7 +7,7 @@ import store from 'store'
 import { currentUserState, userLoginDataState } from 'states'
 
 import styles from './login.module.scss'
-import { HeartbeatIcon } from 'assets/svgs'
+import LoginAside from './LoginAside'
 
 export const Login = () => {
   const [id, setID] = useState('')
@@ -48,13 +48,7 @@ export const Login = () => {
 
   return (
     <div className={styles.loginWrapper}>
-      <nav className={styles.loginHeader}>
-        <div className={styles.loginIcon}>
-          <HeartbeatIcon />
-        </div>
-        <h1>백오피스</h1>
-        <p>다시 오신 것을 환영합니다!</p>
-      </nav>
+      <LoginAside />
       <main className={styles.loginMain}>
         <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
           <div className={styles.loginFormSegment}>

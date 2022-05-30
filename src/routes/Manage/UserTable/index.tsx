@@ -15,21 +15,20 @@ const UserTable = () => {
 
   const filterSearchUser = (data: ISearchedUser) => {
     // 모든 검색어 입력이 안됐을 경우 모든 회원 리스트 리턴
-    if (data.userID === '' && data.userNumber === 0 && data.date.start === '' && data.date.end === '')
-      return userLoginDataJSON
+    if (!data.userID && !data.userNumber && !data.date.start && !data.date.end) return userLoginDataJSON
 
     const matchId = (targetId: string) => {
       const { userID: idKeyword } = data
       // 비어있을 경우 모든 조건에 true
-      if (idKeyword === '') return true
-      if (targetId.includes(idKeyword)) return true
+      if (!idKeyword) return true
+      if (targetId.startsWith(idKeyword)) return true
       return false
     }
 
     const matchDate = (targetDate: string) => {
       const { date: dateKeyword } = data
       // 비어있을 경우 모든 조건에 true
-      if (dateKeyword.start === '' && dateKeyword.end === '') return true
+      if (!dateKeyword.start && !dateKeyword.end) return true
       if (
         targetDate >= dayjs(dateKeyword.start).format('YYYY-MM-DD') &&
         targetDate <= dayjs(dateKeyword.end).format('YYYY-MM-DD')
@@ -41,7 +40,7 @@ const UserTable = () => {
     const matchMemberSeq = (targetSeq: number) => {
       const { userNumber: memberSeqKeyword } = data
       // 비어있을 경우 모든 조건에 true
-      if (memberSeqKeyword === 0) return true
+      if (!memberSeqKeyword) return true
       if (memberSeqKeyword === targetSeq) return true
       return false
     }
@@ -67,7 +66,7 @@ const UserTable = () => {
     </>
   )
 
-  const MessageElement = tableData.length === 0 ? EmptySearchList : CntSearchList
+  const MessageElement = !tableData.length ? EmptySearchList : CntSearchList
 
   return (
     <div className='container'>

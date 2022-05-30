@@ -52,21 +52,24 @@ export const Login = () => {
         <LoginAside />
         <main className={styles.loginMain}>
           <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
-            <div className={styles.loginFormSegment}>
-              <label htmlFor='id'>ID</label>
-              <input type='text' name='id' value={id} required placeholder='ID' onChange={handleIDChange} />
-            </div>
-            <div className={styles.loginFormSegment}>
-              <label htmlFor='password'>Password</label>
-              <input
-                type='password'
-                name='password'
-                placeholder='Password'
-                value={password}
-                required
-                onChange={handlePasswordChange}
-              />
-            </div>
+            <input
+              className={styles.loginInput}
+              type='text'
+              name='id'
+              value={id}
+              required
+              placeholder='ID'
+              onChange={handleIDChange}
+            />
+            <input
+              className={styles.loginInput}
+              type='password'
+              name='password'
+              placeholder='Password'
+              value={password}
+              required
+              onChange={handlePasswordChange}
+            />
             <div className={styles.loginRemember}>
               <input type='checkbox' name='isRemember' checked={isRememberChecked} onChange={handleRememberChange} />
               <label htmlFor='isRemember'>자동 로그인</label>

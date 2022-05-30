@@ -56,25 +56,15 @@ body::before {
 .loginForm {
   @include flexbox.flexbox(center, start);
   flex-direction: column;
-  margin-bottom: 20px;
 
-  .loginFormSegment {
-    @include flexbox.flexbox(center, start);
-    flex-direction: column;
+  .loginInput {
+    height: 40px;
     margin-bottom: 20px;
+    line-height: 20px;
+    border-bottom: 2px solid colors.$LOGIN_BORDER;
 
-    label {
-      width: 50px;
-      margin-bottom: 5px;
-      font-size: 15px;
-      color: colors.$GRAY800;
-      border-radius: 8px;
-    }
-
-    input {
-      height: 40px;
-      line-height: 20px;
-      border-bottom: 2px solid colors.$LOGIN_BORDER;
+    &::placeholder {
+      color: colors.$GRAY100;
     }
   }
 
@@ -104,7 +94,7 @@ body::before {
     @include flexbox.flexbox(center, center);
     width: 100px;
     height: 40px;
-    margin-top: 20px;
+    margin: 20px 0;
     font-size: 20px;
     color: colors.$WHITE;
     background-color: colors.$PRIMARY;
@@ -119,7 +109,7 @@ body::before {
 
   .loginFailed {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 15px;
     color: colors.$LOGIN_FAILED;
   }
 }

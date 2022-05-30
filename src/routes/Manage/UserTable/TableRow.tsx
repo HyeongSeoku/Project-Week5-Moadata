@@ -15,7 +15,7 @@ const TableRow = ({ user }: { user: IUserLoginData }) => {
       <td className={styles.tableCol}>{createdAt}</td>
       <td className={styles.tableCol}>{id}</td>
       <td className={cx(styles.tableCol, styles.tableBtnContainer)}>
-        <NavLink to={`/details/${id}`} state={{ id, createdAt, memberId }}>
+        <NavLink to={`${id}`} state={{ id, createdAt, memberId }}>
           <Button value='상세' size='small' />
         </NavLink>
       </td>

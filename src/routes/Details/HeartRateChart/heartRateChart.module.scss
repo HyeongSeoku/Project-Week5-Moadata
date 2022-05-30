@@ -7,14 +7,25 @@
     font-weight: 600;
   }
 
-  .summary {
-    margin: 0 20px;
+  .chartContainer {
+    width: 400px;
+    height: 400px;
 
-    p {
-      font-size: 20px;
+    .summary {
+      margin: 0 20px;
 
-      + p {
-        margin-top: 10px;
+      .date {
+        font-size: 15px;
+      }
+
+      .avg {
+        font-size: 20px;
+      }
+
+      p {
+        + p {
+          margin-top: 10px;
+        }
       }
     }
   }

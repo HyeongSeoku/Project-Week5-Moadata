@@ -2,9 +2,9 @@ import { Outlet } from 'react-router-dom'
 
 import LNB from './LNB'
 import Header from './Header'
+import PageTitle from 'components/PageTitle'
 
 import styles from './layout.module.scss'
-import PageTitle from 'components/PageTitle'
 
 const Layout = () => {
   return (

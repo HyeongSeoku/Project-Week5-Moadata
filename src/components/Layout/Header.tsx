@@ -1,10 +1,10 @@
 import { useRecoilValue, useResetRecoilState } from 'recoil'
+import store from 'store'
 
 import { currentUserState } from 'states'
-
 import Button from 'components/Button'
+
 import styles from './layout.module.scss'
-import store from 'store'
 
 const Header = () => {
   const currentUser = useRecoilValue(currentUserState)

@@ -66,7 +66,7 @@ const UserSearch = () => {
         </div>
         <SearchDate date={date} setDate={setDate} />
         <div className={styles.buttonBox}>
-          <Button value='필터 초기화' size='medium' onClick={handleResetClick} />
+          <Button value='필터 초기화' size='large' onClick={handleResetClick} />
           <Button value='검색' size='medium' type='submit' />
         </div>
       </form>

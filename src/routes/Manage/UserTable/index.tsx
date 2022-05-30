@@ -70,7 +70,7 @@ const UserTable = () => {
   const MessageElement = tableData.length === 0 ? EmptySearchList : CntSearchList
 
   return (
-    <div className={styles.tableWrapper}>
+    <div className='container'>
       <div>{MessageElement}</div>
       <table className={styles.table}>
         <thead>

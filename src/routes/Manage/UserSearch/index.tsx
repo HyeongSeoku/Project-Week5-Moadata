@@ -4,6 +4,7 @@ import { useSetRecoilState } from 'recoil'
 import { searchedUserInfo } from '../../../store/atom'
 
 import SearchDate from 'components/SearchDate'
+import Button from 'components/Button'
 
 import styles from './userSearch.module.scss'
 
@@ -39,8 +40,7 @@ const UserSearch = () => {
   }
 
   return (
-    <>
-      <div className={styles.searchTitle}>회원 검색</div>
+    <div className='container'>
       <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
         <div className={styles.inputBox}>
           <div className={styles.title}>로그인ID</div>
@@ -57,17 +57,12 @@ const UserSearch = () => {
           </div>
         </div>
         <SearchDate date={date} setDate={setDate} />
-
         <div className={styles.buttonBox}>
-          <button className={styles.searchBtn} type='button' onClick={handleResetClick}>
-            필터 초기화
-          </button>
-          <button className={styles.searchBtn} type='submit'>
-            검색
-          </button>
+          <Button value='필터 초기화' size='medium' onClick={handleResetClick} />
+          <Button value='검색' size='medium' type='submit' />
         </div>
       </form>
-    </>
+    </div>
   )
 }
 

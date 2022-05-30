@@ -13,7 +13,7 @@ export const Details = () => {
   const filterData = userLoginData.filter((item) => item.id === String(id))[0]
 
   return (
-    <div>
+    <div className='container'>
       <UserInfo id={String(id)} memberNumber={filterData.member_seq} createdDate={filterData.create_date} />
       <div className={styles.chartContainer}>
         <HearRateChart id={filterData.member_seq} />

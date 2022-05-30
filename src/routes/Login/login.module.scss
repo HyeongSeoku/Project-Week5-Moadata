@@ -38,6 +38,10 @@
       font-size: 40px;
       color: colors.$LOGIN_TITLE;
     }
+
+    p {
+      color: colors.$LOGIN_TITLE;
+    }
   }
 
   @media screen and (max-width: 768px) {

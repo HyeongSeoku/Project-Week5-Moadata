@@ -1,11 +1,12 @@
+import { useState } from 'react'
 import dayjs from 'dayjs'
 
 import stepCountData from 'data/stepCount.json'
-import styles from './stepCountChart.module.scss'
-import { useState } from 'react'
+
 import SearchDate from 'components/SearchDate'
 import Chart from './Chart'
 import NeedMoreDate from '../NeedForDate'
+import styles from './stepCountChart.module.scss'
 
 interface IProps {
   id: number
@@ -13,18 +14,17 @@ interface IProps {
 
 const StepCountChart = ({ id }: IProps) => {
   const [date, setDate] = useState({ start: '', end: '' })
-  const rawData = stepCountData.filter((item) => item.id === id)
-  const chartData = [...rawData[0].step_count].reverse().filter((item) => {
+  const rawData = stepCountData.filter((item) => item.id === id)[0]
+  const filteredData = rawData.stepCount.filter((dayItem) => {
     if (date.start === '') return true
     return (
-      dayjs(date.start).unix() <= dayjs(item.crt_ymdt).unix() &&
-      dayjs(date.end).unix() + 86400 > dayjs(item.crt_ymdt).unix()
+      dayjs(date.start).unix() <= dayjs(dayItem.date).unix() && dayjs(date.end).unix() >= dayjs(dayItem.date).unix()
     )
   })
   return (
     <div className={styles.stepCountContainer}>
       <p className={styles.title}>걸음수</p>
-      {chartData.length === 0 ? <NeedMoreDate /> : <Chart stepCountData={chartData} date={date} />}
+      {filteredData.length === 0 ? <NeedMoreDate /> : <Chart stepCountData={filteredData} date={date} />}
       <SearchDate date={date} setDate={setDate} />
     </div>
   )

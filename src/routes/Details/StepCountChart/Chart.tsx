@@ -5,13 +5,16 @@ import styles from './stepCountChart.module.scss'
 
 interface IProps {
   stepCountData: {
-    seq: number
-    member_seq: number
-    steps: number
-    minutes: number
-    distance: number
-    calorie: number
-    crt_ymdt: string
+    date: string
+    data: {
+      seq: number
+      member_seq: number
+      steps: number
+      minutes: number
+      distance: number
+      calorie: number
+      crt_ymdt: string
+    }[]
   }[]
   date: {
     start: string
@@ -21,44 +24,61 @@ interface IProps {
 
 const Chart = ({ stepCountData, date }: IProps) => {
   let sumStepCount = 0
-  const data = stepCountData.map((item) => {
-    sumStepCount += item.steps
-    return {
-      x: item.crt_ymdt,
-      y: item.steps,
+  const makeData = () => {
+    if (date.start && date.start === date.end) {
+      const newArr = [...stepCountData[0].data].reverse()
+      return newArr.map((item) => {
+        sumStepCount += item.steps
+        return { x: `   ${dayjs(item.crt_ymdt).format('H:mm')}   `, y: item.steps }
+      })
     }
-  })
+    return stepCountData.map((dateItem) => {
+      sumStepCount += dateItem.data[0].steps
+      return { x: dayjs(dateItem.date).format('MM-DD'), y: dateItem.data[0].steps }
+    })
+  }
+
+  const chartData = makeData()
+  const barWidth = date.start && date.start === date.end ? 5 : 20
+  const axisPadding = date.start && date.start === date.end ? 10 : 100
+  const avgStep =
+    date.start && date.start === date.end
+      ? Math.floor(sumStepCount / stepCountData[0].data.length)
+      : Math.floor(sumStepCount / stepCountData.length)
+
   return (
     <div className={styles.chartContainer}>
       <VictoryChart
-        domainPadding={10}
-        containerComponent={<VictoryContainer responsive={false} width={400} height={300} />}
+        padding={60}
+        domainPadding={{ y: 50, x: axisPadding }}
+        width={500}
+        height={300}
+        containerComponent={<VictoryContainer responsive={false} />}
       >
         <VictoryAxis dependentAxis />
-        <VictoryAxis
-          crossAxis
-          scale={{ x: 'time' }}
-          style={{ tickLabels: { angle: 0, textAnchor: 'start' } }}
-          fixLabelOverlap
-          tickFormat={() => ''}
-          domainPadding={{ y: 10 }}
+        <VictoryAxis fixLabelOverlap />
+        <VictoryBar
+          data={chartData}
+          cornerRadius={2}
+          style={{
+            data: { fill: '#586cf5', width: barWidth },
+          }}
         />
-        <VictoryBar data={data} />
       </VictoryChart>
       <div className={styles.summary}>
         {date.start === '' ? (
-          <p className={styles.date}>모든 날짜 선택됨</p>
+          <p className={styles.date}>전체 데이터</p>
         ) : (
           <p>
             {dayjs(date.start).format('YYYY')}년 {dayjs(date.start).format('M')}월 {dayjs(date.start).format('D')}일
             {date.end !== date.start
-              ? ` ~ ${dayjs(date.start).format('YYYY')}년 ${dayjs(date.start).format('M')}월 ${dayjs(date.start).format(
+              ? ` ~ ${dayjs(date.end).format('YYYY')}년 ${dayjs(date.end).format('M')}월 ${dayjs(date.end).format(
                   'D'
                 )}일`
               : ''}
           </p>
         )}
-        <p className={styles.avg}>평균 {Math.floor(sumStepCount / data.length).toLocaleString()} 걸음</p>
+        <p className={styles.avg}>평균 {avgStep.toLocaleString()} 걸음</p>
       </div>
     </div>
   )

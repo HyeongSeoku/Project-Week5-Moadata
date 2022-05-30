@@ -43,9 +43,17 @@ const UserSearch = () => {
     <div className='container'>
       <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
         <div className={styles.inputBox}>
-          <div className={styles.title}>로그인ID</div>
-          <input className={styles.input} type='input' placeholder='전체' value={userID} onChange={handleUserIdInput} />
-          <div className={styles.inputNumBox}>
+          <div className={styles.inputItem}>
+            <div className={styles.title}>로그인ID</div>
+            <input
+              className={styles.input}
+              type='input'
+              placeholder='전체'
+              value={userID}
+              onChange={handleUserIdInput}
+            />
+          </div>
+          <div className={styles.inputItem}>
             <div className={styles.title}>회원번호</div>
             <input
               className={styles.input}

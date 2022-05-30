@@ -1,10 +1,10 @@
-$GRAY: #f2f2f2;
-$BLACK: #000000;
+@use 'styles/constants/colors';
 
 .userInfo {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+  color: colors.$INFO_TEXT;
 
   &Item {
     display: flex;
@@ -13,12 +13,13 @@ $BLACK: #000000;
     * {
       padding: 8px;
       text-align: center;
-      border: 1px solid $BLACK;
+      border: 1px solid colors.$INFO_BACKGROUND;
+      border-radius: 12px;
     }
 
     dt {
       width: 100px;
-      background-color: $GRAY;
+      background-color: colors.$INFO_BORDER;
     }
 
     dd {

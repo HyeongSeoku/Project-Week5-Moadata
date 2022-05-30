@@ -13,6 +13,7 @@ body::before {
   filter: blur(10px);
   background-size: cover;
   opacity: 0.8;
+  transform: scale(110%);
 }
 
 .loginBackground {

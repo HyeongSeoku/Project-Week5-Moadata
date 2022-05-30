@@ -39,12 +39,12 @@ const Chart = ({ stepCountData, date }: IProps) => {
   }
 
   const chartData = makeData()
-  const barWidth = date.start && date.start === date.end ? 5 : 20
+  const barWidth = date.start && date.start === date.end ? 1 : 20
   const axisPadding = date.start && date.start === date.end ? 10 : 100
-  const avgStep =
+  const summaryString =
     date.start && date.start === date.end
-      ? Math.floor(sumStepCount / stepCountData[0].data.length)
-      : Math.floor(sumStepCount / stepCountData.length)
+      ? stepCountData[0].data[0].steps.toLocaleString()
+      : `평균 ${Math.floor(sumStepCount / stepCountData.length).toLocaleString()}`
 
   return (
     <div className={styles.chartContainer}>
@@ -59,7 +59,6 @@ const Chart = ({ stepCountData, date }: IProps) => {
         <VictoryAxis fixLabelOverlap />
         <VictoryBar
           data={chartData}
-          cornerRadius={2}
           style={{
             data: { fill: '#586cf5', width: barWidth },
           }}
@@ -78,7 +77,7 @@ const Chart = ({ stepCountData, date }: IProps) => {
               : ''}
           </p>
         )}
-        <p className={styles.avg}>평균 {avgStep.toLocaleString()} 걸음</p>
+        <p className={styles.avg}>{summaryString} 걸음</p>
       </div>
     </div>
   )

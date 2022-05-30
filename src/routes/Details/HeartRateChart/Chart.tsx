@@ -40,6 +40,7 @@ const Chart = ({ heartRateData, date }: IProps) => {
       return { x: dayjs(dateItem.date).format('MM-DD'), y: Math.floor(daySumHeartRate / dateItem.data.length) }
     })
   }
+
   const chartData = data()
   const axisPadding = date.start && date.start === date.end ? 10 : 100
   const avgStep = Math.floor(sumHeartRate / dataLength)
@@ -48,7 +49,7 @@ const Chart = ({ heartRateData, date }: IProps) => {
     <div className={styles.chartContainer}>
       <VictoryChart
         padding={60}
-        domainPadding={{ y: 50, x: axisPadding }}
+        domainPadding={{ y: 10, x: axisPadding }}
         width={500}
         height={300}
         containerComponent={<VictoryContainer responsive={false} />}

@@ -1,11 +1,14 @@
 import { ErrorIcon } from 'assets/svgs'
 import styles from './needMoreDate.module.scss'
 
-const NeedMoreDate = () => {
+interface IProps {
+  title: string
+}
+const NeedMoreDate = ({ title }: IProps) => {
   return (
     <div className={styles.needMoreDateContainer}>
       <ErrorIcon className={styles.errorIcon} />
-      <div className={styles.errorMessage}>현재 선택한 날짜에 포함되는 data가 없습니다.</div>
+      <div className={styles.errorMessage}>{title}</div>
     </div>
   )
 }

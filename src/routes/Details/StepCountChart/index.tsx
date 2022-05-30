@@ -24,7 +24,11 @@ const StepCountChart = ({ id }: IProps) => {
   return (
     <div className={styles.stepCountContainer}>
       <p className={styles.title}>걸음수</p>
-      {filteredData.length === 0 ? <NeedMoreDate /> : <Chart stepCountData={filteredData} date={date} />}
+      {filteredData.length === 0 ? (
+        <NeedMoreDate title='정확한 날짜 설정을 해주세요.' />
+      ) : (
+        <Chart stepCountData={filteredData} date={date} />
+      )}
       <SearchDate date={date} setDate={setDate} />
     </div>
   )

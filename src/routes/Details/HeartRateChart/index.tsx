@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import dayjs from 'dayjs'
 
 import heartRateData from 'data/heartRate.json'
@@ -20,10 +20,18 @@ const HearRateChart = ({ id }: IProps) => {
       dayjs(date.start).unix() <= dayjs(dayItem.date).unix() && dayjs(date.end).unix() >= dayjs(dayItem.date).unix()
     )
   })
+
+  const chartResult =
+    filteredData.length === 0 || (filteredData.length === 1 && date.start !== date.end) ? (
+      <NeedMoreDate title='정확한 날짜 설정을 해주세요.' />
+    ) : (
+      <Chart heartRateData={filteredData} date={date} />
+    )
+
   return (
     <div className={styles.heartRateContainer}>
       <p className={styles.title}>심박수</p>
-      {filteredData.length === 0 ? <NeedMoreDate /> : <Chart heartRateData={filteredData} date={date} />}
+      {chartResult}
       <SearchDate date={date} setDate={setDate} />
     </div>
   )

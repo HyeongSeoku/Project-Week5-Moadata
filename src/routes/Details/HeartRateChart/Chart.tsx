@@ -1,4 +1,5 @@
 import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine } from 'victory'
+import dayjs from 'dayjs'
 import styles from './heartRateChart.module.scss'
 
 interface IProps {
@@ -38,8 +39,12 @@ const Chart = ({ heartRateData, date }: IProps) => {
           <p className={styles.date}>모든 날짜 선택됨</p>
         ) : (
           <p>
-            {date.start}
-            {date.end !== date.start ? `-${date.end}` : ''}
+            {dayjs(date.start).format('YYYY')}년 {dayjs(date.start).format('M')}월 {dayjs(date.start).format('D')}일
+            {date.end !== date.start
+              ? ` ~ ${dayjs(date.start).format('YYYY')}년 ${dayjs(date.start).format('M')}월 ${dayjs(date.start).format(
+                  'D'
+                )}일`
+              : ''}
           </p>
         )}
         <p className={styles.avg}>

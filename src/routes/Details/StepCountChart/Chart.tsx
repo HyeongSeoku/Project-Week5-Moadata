@@ -1,4 +1,6 @@
+import dayjs from 'dayjs'
 import { VictoryAxis, VictoryBar, VictoryChart, VictoryContainer } from 'victory'
+
 import styles from './stepCountChart.module.scss'
 
 interface IProps {
@@ -48,8 +50,12 @@ const Chart = ({ stepCountData, date }: IProps) => {
           <p className={styles.date}>모든 날짜 선택됨</p>
         ) : (
           <p>
-            {date.start}
-            {date.end !== date.start ? `-${date.end}` : ''}
+            {dayjs(date.start).format('YYYY')}년 {dayjs(date.start).format('M')}월 {dayjs(date.start).format('D')}일
+            {date.end !== date.start
+              ? ` ~ ${dayjs(date.start).format('YYYY')}년 ${dayjs(date.start).format('M')}월 ${dayjs(date.start).format(
+                  'D'
+                )}일`
+              : ''}
           </p>
         )}
         <p className={styles.avg}>평균 {Math.floor(sumStepCount / data.length).toLocaleString()} 걸음</p>

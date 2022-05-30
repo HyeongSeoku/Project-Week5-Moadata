@@ -47,36 +47,38 @@ export const Login = () => {
   })
 
   return (
-    <div className={styles.loginWrapper}>
-      <LoginAside />
-      <main className={styles.loginMain}>
-        <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
-          <div className={styles.loginFormSegment}>
-            <label htmlFor='id'>ID</label>
-            <input type='text' name='id' value={id} required placeholder='id' onChange={handleIDChange} />
-          </div>
-          <div className={styles.loginFormSegment}>
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              name='password'
-              placeholder='password'
-              value={password}
-              required
-              onChange={handlePasswordChange}
-            />
-          </div>
-          <div className={styles.loginRemember}>
-            <input type='checkbox' name='isRemember' checked={isRememberChecked} onChange={handleRememberChange} />
-            <label htmlFor='isRemember'>자동 로그인</label>
-          </div>
-          {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
-          <button type='submit' className={styles.loginButton}>
-            로그인
-          </button>
-        </form>
-        <span>비밀번호를 잊어버리셨나요?</span>
-      </main>
+    <div className={styles.loginBackground}>
+      <div className={styles.loginWrapper}>
+        <LoginAside />
+        <main className={styles.loginMain}>
+          <form className={styles.loginForm} onSubmit={handleLoginSubmit}>
+            <div className={styles.loginFormSegment}>
+              <label htmlFor='id'>ID</label>
+              <input type='text' name='id' value={id} required placeholder='ID' onChange={handleIDChange} />
+            </div>
+            <div className={styles.loginFormSegment}>
+              <label htmlFor='password'>Password</label>
+              <input
+                type='password'
+                name='password'
+                placeholder='Password'
+                value={password}
+                required
+                onChange={handlePasswordChange}
+              />
+            </div>
+            <div className={styles.loginRemember}>
+              <input type='checkbox' name='isRemember' checked={isRememberChecked} onChange={handleRememberChange} />
+              <label htmlFor='isRemember'>자동 로그인</label>
+            </div>
+            {isLoginFailed && <p className={styles.loginFailed}>존재하지 않는 ID입니다</p>}
+            <button type='submit' className={styles.loginButton}>
+              로그인
+            </button>
+          </form>
+          <span>비밀번호를 잊어버리셨나요?</span>
+        </main>
+      </div>
     </div>
   )
 }

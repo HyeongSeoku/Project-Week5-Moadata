@@ -1,14 +1,44 @@
 @use 'styles/mixins/flexbox';
+@use 'styles/mixins/position';
 @use 'styles/constants/colors';
+@use 'styles/constants/levels';
+
+body::before {
+  @include position.fixed(0);
+  z-index: levels.$BACKGROUND_IMAGE;
+  width: 100vw;
+  height: 100vh;
+  content: '';
+  background-image: url('/assets/imgs/office.webp');
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.8;
+}
+
+.loginBackground {
+  @include flexbox.flexbox(center, center);
+  width: 100vw;
+  height: 100vh;
+}
 
 .loginWrapper {
   @include flexbox.flexbox(start, center);
   flex-direction: row;
-  width: 100vw;
-  height: 100vh;
+  width: 60vw;
+  height: 50vh;
+  background-color: colors.$WHITE;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 5px rgba(colors.$GRAY800, 20%);
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+    width: 80vw;
+    height: 80vh;
+
+    .loginMain,
+    .loginForm {
+      @include flexbox.flexbox(center, center);
+    }
   }
 }
 
@@ -19,6 +49,7 @@
   span {
     font-style: italic;
     color: colors.$GRAY300;
+    text-decoration: underline;
   }
 }
 
@@ -42,7 +73,6 @@
 
     input {
       height: 40px;
-      padding: 0 10px;
       line-height: 20px;
       border-bottom: 2px solid colors.$LOGIN_BORDER;
     }
@@ -57,7 +87,6 @@
       height: 20px;
       margin-right: 10px;
       border: 2px solid colors.$GRAY100;
-      border-radius: 50%;
 
       &:checked {
         background-color: colors.$PRIMARY;
@@ -89,7 +118,8 @@
   }
 
   .loginFailed {
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 18px;
     color: colors.$LOGIN_FAILED;
   }
 }

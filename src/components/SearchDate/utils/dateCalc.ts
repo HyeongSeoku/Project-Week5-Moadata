@@ -5,11 +5,11 @@ export const getToday = () => {
   const day = `0${today.getDate()}`.slice(-2)
   return `${year}-${month}-${day}`
 }
-export const getAfterWeek = () => {
+export const getBeforeWeek = () => {
   const today = new Date()
-  const afterWeek = new Date(today.setDate(today.getDate() + 6))
-  const year = afterWeek.getFullYear()
-  const month = `0${1 + afterWeek.getMonth()}`.slice(-2)
-  const day = `0${afterWeek.getDate()}`.slice(-2)
+  const beforeWeek = new Date(today.setDate(today.getDate() - 7))
+  const year = beforeWeek.getFullYear()
+  const month = `0${1 + beforeWeek.getMonth()}`.slice(-2)
+  const day = `0${beforeWeek.getDate()}`.slice(-2)
   return `${year}-${month}-${day}`
 }

@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react'
 import { PickedDate } from 'types/types'
 import styles from './searchDate.module.scss'
-import { getAfterWeek, getToday } from './utils/dateCalc'
+import { getBeforeWeek, getToday } from './utils/dateCalc'
 
 interface Props {
   date: PickedDate
@@ -21,7 +21,7 @@ const SearchDate = (props: Props) => {
       setDate({ start: getToday(), end: getToday() })
     }
     if (btn === 'week') {
-      setDate({ start: getToday(), end: getAfterWeek() })
+      setDate({ start: getBeforeWeek(), end: getToday() })
     }
     if (btn === 'all') {
       setDate({ start: '', end: '' })

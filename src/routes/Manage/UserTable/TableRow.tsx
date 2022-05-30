@@ -3,6 +3,7 @@ import cx from 'classnames'
 
 import { IUserLoginData } from 'types/types'
 
+import Button from 'components/Button'
 import styles from './userTable.module.scss'
 
 const TableRow = ({ user }: { user: IUserLoginData }) => {
@@ -15,9 +16,7 @@ const TableRow = ({ user }: { user: IUserLoginData }) => {
       <td className={styles.tableCol}>{id}</td>
       <td className={cx(styles.tableCol, styles.tableBtnContainer)}>
         <NavLink to={`/details/${id}`} state={{ id, createdAt, memberId }}>
-          <button type='button' className={styles.tableBtn}>
-            상세
-          </button>
+          <Button value='상세' size='small' />
         </NavLink>
       </td>
     </tr>

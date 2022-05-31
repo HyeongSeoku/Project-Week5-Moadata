@@ -46,6 +46,8 @@ const Chart = ({ stepCountData, date }: IProps) => {
       ? stepCountData[0].data[0].steps.toLocaleString()
       : `평균 ${Math.floor(sumStepCount / stepCountData.length).toLocaleString()}`
 
+  const cornerRadius = date.start && date.start === date.end ? 0 : 4
+
   return (
     <div className={styles.chartContainer}>
       <VictoryChart
@@ -55,9 +57,10 @@ const Chart = ({ stepCountData, date }: IProps) => {
         height={300}
         containerComponent={<VictoryContainer responsive={false} />}
       >
-        <VictoryAxis dependentAxis />
-        <VictoryAxis fixLabelOverlap />
+        <VictoryAxis dependentAxis style={{ axis: { stroke: '#3a474e' }, tickLabels: { fill: '#94a2ad' } }} />
+        <VictoryAxis fixLabelOverlap style={{ axis: { stroke: '#3a474e' }, tickLabels: { fill: '#94a2ad' } }} />
         <VictoryBar
+          cornerRadius={cornerRadius}
           data={chartData}
           style={{
             data: { fill: '#586cf5', width: barWidth },

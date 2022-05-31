@@ -54,8 +54,8 @@ const Chart = ({ heartRateData, date }: IProps) => {
         height={300}
         containerComponent={<VictoryContainer responsive={false} />}
       >
-        <VictoryAxis dependentAxis />
-        <VictoryAxis fixLabelOverlap />
+        <VictoryAxis dependentAxis style={{ axis: { stroke: '#3a474e' }, tickLabels: { fill: '#94a2ad' } }} />
+        <VictoryAxis fixLabelOverlap style={{ axis: { stroke: '#3a474e' }, tickLabels: { fill: '#94a2ad' } }} />
         <VictoryLine
           data={chartData}
           style={{

@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 10px;
-  color: colors.$GRAY800; // 통일 후 바꿀 예정
+  color: colors.$GRAY300; // 통일 후 바꿀 예정
   text-align: center;
 
   .inputItem {
@@ -29,8 +29,6 @@
   height: 37px;
   margin-right: 10px;
   line-height: 37px;
-  background-color: #e5f4fd; // 후에 _colors.scss에서 가져올 예정
-  border: 1px solid #dddddd;
   border-radius: 8px;
 }
 

@@ -1,28 +1,27 @@
-$GRAY: #f2f2f2;
-$BLACK: #000000;
+@use 'styles/constants/colors';
 
 .userInfo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid colors.$GRAY100;
 
   &Item {
     display: flex;
     gap: 8px;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-right: 1px solid colors.$GRAY100;
 
-    * {
-      padding: 8px;
-      text-align: center;
-      border: 1px solid $BLACK;
+    &:last-child {
+      border: none;
     }
+  }
 
-    dt {
-      width: 100px;
-      background-color: $GRAY;
-    }
+  dt {
+    color: colors.$GRAY300;
+  }
 
-    dd {
-      width: 180px;
-    }
+  dd {
+    color: colors.$GRAY800;
   }
 }

@@ -49,7 +49,7 @@ const Chart = ({ heartRateData, date }: IProps) => {
     <div className={styles.chartContainer}>
       <VictoryChart
         padding={60}
-        domainPadding={{ y: 10, x: axisPadding }}
+        domainPadding={{ y: 20, x: axisPadding }}
         width={500}
         height={300}
         containerComponent={<VictoryContainer responsive={false} />}

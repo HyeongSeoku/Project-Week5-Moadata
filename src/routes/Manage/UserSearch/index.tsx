@@ -43,9 +43,17 @@ const UserSearch = () => {
     <div className='container'>
       <form className={styles.searchForm} onSubmit={handleSearchSubmit}>
         <div className={styles.inputBox}>
-          <div className={styles.title}>로그인ID</div>
-          <input className={styles.input} type='input' placeholder='전체' value={userID} onChange={handleUserIdInput} />
-          <div className={styles.inputNumBox}>
+          <div className={styles.inputItem}>
+            <div className={styles.title}>로그인ID</div>
+            <input
+              className={styles.input}
+              type='input'
+              placeholder='전체'
+              value={userID}
+              onChange={handleUserIdInput}
+            />
+          </div>
+          <div className={styles.inputItem}>
             <div className={styles.title}>회원번호</div>
             <input
               className={styles.input}
@@ -58,7 +66,7 @@ const UserSearch = () => {
         </div>
         <SearchDate date={date} setDate={setDate} />
         <div className={styles.buttonBox}>
-          <Button value='필터 초기화' size='medium' onClick={handleResetClick} />
+          <Button value='필터 초기화' size='large' onClick={handleResetClick} />
           <Button value='검색' size='medium' type='submit' />
         </div>
       </form>

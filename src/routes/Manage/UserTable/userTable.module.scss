@@ -1,31 +1,55 @@
 @use '/src/styles/constants/colors';
 
-.tableWrapper {
-  padding: 5px 10px;
-  margin-top: 10px;
-  border: 1px solid;
+.message {
+  display: inline-block;
+  width: auto;
+  padding: 5px 8px;
+  margin-bottom: 10px;
+  line-height: 140%;
+  border-collapse: collapse;
+  border: 1px solid colors.$TABLE_BORDER;
+  border-radius: 8px;
+
+  .countText {
+    color: colors.$PRIMARY;
+  }
 }
 
 .table {
+  overflow: hidden;
+  line-height: 140%;
   border-collapse: collapse;
-  border: 1px solid;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 8%);
 
-  th,
-  td {
-    border: 1px solid colors.$TABLE_ROW;
+  tr {
+    border-bottom: 1px solid colors.$TABLE_BORDER;
   }
 
+  .tableId,
   .tableTitle {
     background-color: #f2f1f2;
+  }
+
+  .tableId,
+  .userNumber {
+    width: 150px;
   }
 
   .userNumber {
     color: colors.$TABLE_USER_NUMBER;
   }
 
+  .tableBody {
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
   .tableCol {
     width: 400px;
-    padding: 5px;
+    padding: 10px 5px;
+    line-height: 140%;
     text-align: center;
   }
 

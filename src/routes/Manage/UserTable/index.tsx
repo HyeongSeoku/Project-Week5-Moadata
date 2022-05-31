@@ -61,7 +61,7 @@ const UserTable = () => {
   const CntSearchList = (
     <>
       <span>전체 총</span>
-      <span>{tableData.length}</span>
+      <span className={styles.countText}>{tableData.length}</span>
       <span>명의 회원이 검색 되었습니다.</span>
     </>
   )
@@ -70,17 +70,17 @@ const UserTable = () => {
 
   return (
     <div className='container'>
-      <div>{MessageElement}</div>
+      <div className={styles.message}>{MessageElement}</div>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={cx(styles.tableCol, styles.tableTitle)}>회원번호</th>
+            <th className={cx(styles.tableCol, styles.tableId)}>회원번호</th>
             <th className={cx(styles.tableCol, styles.tableTitle)}>가입일</th>
             <th className={cx(styles.tableCol, styles.tableTitle)}>로그인ID</th>
             <th className={cx(styles.tableCol, styles.tableTitle)}>상세</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.tableBody}>
           {tableData.map((user) => (
             <TableRow key={`user_search_${user.member_seq}`} user={user} />
           ))}

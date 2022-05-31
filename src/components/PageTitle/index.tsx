@@ -1,9 +1,10 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
 import styles from './pageTitle.module.scss'
 
 const PageTitle = () => {
   const location = useLocation()
+  const { id } = useParams()
   const currentLocation = location.pathname
 
   const makeTitle = () => {
@@ -18,13 +19,13 @@ const PageTitle = () => {
     <>
       <div className={styles.menuLink}>
         <Link to='/'>홈</Link>
-        {(currentLocation.startsWith('/manage') || currentLocation.startsWith('/details')) && (
+        {currentLocation.startsWith('/manage') && (
           <>
             <span className={styles.arrow}>&gt;</span>
             <Link to='/manage'>회원 관리</Link>
           </>
         )}
-        {currentLocation.startsWith('/details') && (
+        {!!id && (
           <>
             <span className={styles.arrow}>&gt;</span>
             <span>회원 상세</span>

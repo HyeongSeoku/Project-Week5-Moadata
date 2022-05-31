@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use 'styles/mixins/flexbox';
 
 .searchTitle {
   margin-bottom: 18px;
@@ -7,19 +8,18 @@
 .searchForm {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   width: 100%;
 }
 
 .inputBox {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+  color: colors.$GRAY300; // 통일 후 바꿀 예정
   text-align: center;
 
-  .inputNumBox {
+  .inputItem {
     display: flex;
-    margin-right: auto;
-    margin-left: auto;
   }
 }
 
@@ -27,16 +27,16 @@
   width: 100px;
   min-width: 65px;
   height: 37px;
-  padding-top: 10px;
-  background-color: colors.$SEARCH_TITLE_BACKGROUND; // 후에 _colors.scss에서 가져올 예정
-  border: 1px solid colors.$BLACK;
+  margin-right: 10px;
+  line-height: 37px;
+  border-radius: 8px;
 }
 
 .input {
   width: 180px;
   height: 37px;
-  padding: 10px;
-  border: 1px solid colors.$BLACK;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
 
   &::placeholder {
     text-align: center;
@@ -44,7 +44,11 @@
 }
 
 .buttonBox {
-  display: flex;
-  justify-content: flex-end;
+  @include flexbox.flexbox(right);
   width: 100%;
+  margin-top: 10px;
+
+  button {
+    margin-left: 10px;
+  }
 }

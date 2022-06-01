@@ -23,7 +23,7 @@
       margin-left: 5px;
 
       path {
-        fill: colors.$LOGIN_TITLE;
+        fill: colors.$GRAY800;
       }
     }
   }
@@ -31,11 +31,11 @@
   h1 {
     margin-bottom: 20px;
     font-size: 30px;
-    color: colors.$LOGIN_TITLE;
+    color: colors.$GRAY800;
   }
 
   p {
-    color: colors.$LOGIN_TITLE;
+    color: colors.$GRAY800;
   }
 
   @include responsive.mobileOnly {

@@ -1,0 +1,49 @@
+@use 'styles/mixins/flexbox';
+@use 'styles/constants/colors';
+@use 'styles/mixins/responsive';
+
+.loginHeader {
+  @include flexbox.flexbox(center, center);
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  background-color: colors.$SECONDARY;
+  border-radius: 8px 0 0 8px;
+
+  .loginIcon {
+    @include flexbox.flexbox(center, center);
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 50%;
+
+    svg {
+      width: 70px;
+      margin-left: 5px;
+
+      path {
+        fill: colors.$GRAY800;
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 700;
+    color: colors.$GRAY800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    color: colors.$GRAY800;
+  }
+
+  @include responsive.mobileOnly {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+  }
+}

@@ -43,7 +43,8 @@ export const Login = () => {
   }
 
   useMount(() => {
-    if (currentUser.id !== '') nav('/')
+    const storeUser = store.get('loginData')
+    if (currentUser.id !== '' || storeUser.id !== '') nav('/')
   })
 
   return (

@@ -7,7 +7,7 @@
   margin-bottom: 10px;
   line-height: 140%;
   border-collapse: collapse;
-  border: 1px solid colors.$TABLE_BORDER;
+  border: 1px solid colors.$GRAY100;
   border-radius: 8px;
 
   .countText {
@@ -23,12 +23,12 @@
   box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 8%);
 
   tr {
-    border-bottom: 1px solid colors.$TABLE_BORDER;
+    border-bottom: 1px solid colors.$GRAY100;
   }
 
   .tableId,
   .tableTitle {
-    background-color: #f2f1f2;
+    background-color: colors.$BACKGROUND;
   }
 
   .tableId,
@@ -37,7 +37,7 @@
   }
 
   .userNumber {
-    color: colors.$TABLE_USER_NUMBER;
+    color: colors.$GRAY800;
   }
 
   .tableBody {
@@ -54,14 +54,13 @@
   }
 
   .tableBtn {
-    width: 42px;
+    width: 54px;
     padding: 3px 0;
-    color: colors.$TABLE_TITLE_BACKGROUND;
     background-color: colors.$PRIMARY;
-    border-radius: 3px;
+    border-radius: 5px;
 
-    &:hover {
-      opacity: 0.5;
+    &:focus {
+      background-color: colors.$BUTTON_PRESSED;
     }
   }
 }

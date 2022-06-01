@@ -7,43 +7,14 @@
   background-color: colors.$BACKGROUND;
 
   .mainContainer {
-    padding: sizes.$HEADER_HEIGHT 40px 40px;
+    padding: 40px;
     margin-left: sizes.$LNB_WIDTH;
-  }
-}
-
-.header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: levels.$HEADER;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: sizes.$HEADER_HEIGHT;
-  padding: 0 40px;
-  background-color: colors.$WHITE;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 20%);
-
-  h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: colors.$GRAY800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  span {
-    margin-right: 20px;
-    color: colors.$GRAY800;
   }
 }
 
 .lnb {
   position: fixed;
-  top: sizes.$HEADER_HEIGHT;
+  top: 0;
   left: 0;
   z-index: levels.$LNB;
   display: flex;
@@ -51,16 +22,48 @@
   justify-content: space-between;
   width: sizes.$LNB_WIDTH;
   height: 100%;
-  padding: 40px;
-  background-color: colors.$SECONDARY;
+  background-color: colors.$WHITE;
   box-shadow: 4px 0 10px 0 rgba(0, 0, 0, 4%);
+
+  .topWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 130px;
+    padding-top: 40px;
+    margin-bottom: 100px;
+    background-color: colors.$PRIMARY;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: colors.$WHITE;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .profile {
+      position: absolute;
+      bottom: -62px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin-top: 8px;
+        color: colors.$GRAY800;
+      }
+    }
+  }
 
   .navigation {
     a {
       display: flex;
       align-items: center;
-      padding: 20px 22px;
-      border-radius: 10px;
+      padding: 20px 30px;
+      font-size: 18px;
       transition: all 0.1s ease-in-out;
 
       svg {
@@ -69,9 +72,36 @@
       }
 
       &.isActive {
-        color: colors.$WHITE;
-        background-color: colors.$PRIMARY;
+        color: colors.$PRIMARY;
       }
+    }
+  }
+
+  .logoutBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: colors.$GRAY800;
+    background-color: transparent;
+
+    svg {
+      margin-right: 4px;
+      fill: currentcolor;
+    }
+  }
+}
+
+header {
+  .menuLink {
+    color: colors.$GRAY800;
+
+    a {
+      color: colors.$GRAY800;
+    }
+
+    .arrow {
+      margin: 0 8px;
     }
   }
 }

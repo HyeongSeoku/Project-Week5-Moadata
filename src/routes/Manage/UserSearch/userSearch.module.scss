@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 10px;
-  color: colors.$GRAY300; // 통일 후 바꿀 예정
+  color: colors.$GRAY300;
   text-align: center;
 
   .inputItem {
@@ -28,17 +28,19 @@
   min-width: 65px;
   height: 37px;
   margin-right: 10px;
-  line-height: 37px;
+  line-height: 44px;
   border-radius: 8px;
 }
 
 .input {
   width: 180px;
   height: 37px;
-  border: 1px solid #dddddd;
-  border-radius: 8px;
+  padding-left: 10px;
+  border-bottom: 1px solid colors.$GRAY100;
 
   &::placeholder {
+    padding-right: 10px;
+    color: colors.$GRAY100;
     text-align: center;
   }
 }

@@ -31,7 +31,10 @@
   h1 {
     margin-bottom: 20px;
     font-size: 30px;
+    font-weight: 700;
     color: colors.$GRAY800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   p {

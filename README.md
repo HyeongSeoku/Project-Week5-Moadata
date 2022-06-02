@@ -9,10 +9,135 @@
 
 ## 실행 방법
 
+```
+$> npm i -f
+$> npm start
+```
+
 ## 폴더 구조
 
 ```
-아직 없
+src
+├── assets
+│   ├── imgs
+│   │   ├── office.webp
+│   │   └── profile.png
+│   └── svgs
+│       ├── error.svg
+│       ├── heartbeat.svg
+│       ├── home.svg
+│       ├── index.ts
+│       ├── logout.svg
+│       └── manage_accounts.svg
+├── components
+│   ├── Button
+│   │   ├── button.module.scss
+│   │   └── index.tsx
+│   ├── Layout
+│   │   ├── Header.tsx
+│   │   ├── LNB.tsx
+│   │   ├── index.tsx
+│   │   └── layout.module.scss
+│   ├── SearchDate
+│   │   ├── index.tsx
+│   │   ├── searchDate.module.scss
+│   │   └── utils
+│   │       └── dateCalc.ts
+│   └── index.ts
+├── data
+│   ├── heartRate.json
+│   ├── heartrate_data
+│   │   ├── heartrate_136_0226_____1_.json
+│   │   ├── heartrate_136_0308_____1_.json
+│   │   ├── heartrate_136_0419_____1_.json
+│   │   ├── heartrate_328_0416_____2_.json
+│   │   ├── heartrate_328_0419_____2_.json
+│   │   ├── heartrate_328_0420_____2_.json
+│   │   ├── heartrate_380_0417_____3_.json
+│   │   ├── heartrate_380_0418_____3_.json
+│   │   └── heartrate_380_0419_____3_.json
+│   ├── stepCount.json
+│   ├── step_data
+│   │   ├── step_136_0226_____1_.json
+│   │   ├── step_136_0308_____1_.json
+│   │   ├── step_136_0419_____1_.json
+│   │   ├── step_328_0416_____2_.json
+│   │   ├── step_328_0419_____2_.json
+│   │   ├── step_328_0420_____2_.json
+│   │   ├── step_380_0417_____3_.json
+│   │   ├── step_380_0418_____3_.json
+│   │   └── step_380_0419_____3_.json
+│   ├── userLoginData.json
+│   └── userdata.json
+├── global.d.ts
+├── hooks
+│   └── index.ts
+├── index.tsx
+├── react-app-env.d.ts
+├── reportWebVitals.ts
+├── routes
+│   ├── Dashboard
+│   │   └── index.tsx
+│   ├── Details
+│   │   ├── HeartRateChart
+│   │   │   ├── Chart.tsx
+│   │   │   ├── heartRateChart.module.scss
+│   │   │   └── index.tsx
+│   │   ├── NeedForDate
+│   │   │   ├── index.tsx
+│   │   │   └── needMoreDate.module.scss
+│   │   ├── StepCountChart
+│   │   │   ├── Chart.tsx
+│   │   │   ├── index.tsx
+│   │   │   └── stepCountChart.module.scss
+│   │   ├── UserInfo
+│   │   │   ├── index.tsx
+│   │   │   └── userInfo.module.scss
+│   │   ├── detail.module.scss
+│   │   └── index.tsx
+│   ├── Login
+│   │   ├── LoginAside
+│   │   │   ├── index.tsx
+│   │   │   └── loginAside.module.scss
+│   │   ├── index.tsx
+│   │   └── login.module.scss
+│   ├── LoginCheck.tsx
+│   ├── Manage
+│   │   ├── UserSearch
+│   │   │   ├── index.tsx
+│   │   │   └── userSearch.module.scss
+│   │   ├── UserTable
+│   │   │   ├── TableRow.tsx
+│   │   │   ├── index.tsx
+│   │   │   └── userTable.module.scss
+│   │   └── index.tsx
+│   └── index.tsx
+├── setupTests.ts
+├── states
+│   ├── currentUserState.ts
+│   ├── index.ts
+│   ├── searchedUserInfoState.ts
+│   ├── userDataState.ts
+│   └── userLoginDataState.ts
+├── styles
+│   ├── base
+│   │   ├── _fonts.scss
+│   │   ├── _more.scss
+│   │   └── _reset.scss
+│   ├── constants
+│   │   ├── _colors.scss
+│   │   ├── _levels.scss
+│   │   └── _sizes.scss
+│   ├── global.scss
+│   ├── index.scss
+│   ├── index.ts
+│   └── mixins
+│       ├── _animation.scss
+│       ├── _flexbox.scss
+│       ├── _position.scss
+│       └── _responsive.scss
+└── types
+    └── types.d.ts
 ```
 
 ## 구현 방법과 이유, 사용한 기술

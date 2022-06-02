@@ -2,18 +2,16 @@ import { Outlet } from 'react-router-dom'
 
 import LNB from './LNB'
 import Header from './Header'
-import PageTitle from 'components/PageTitle'
 
 import styles from './layout.module.scss'
 
 const Layout = () => {
   return (
     <div className={styles.appContainer}>
-      <Header />
+      <LNB />
       <div className={styles.mainContainer}>
-        <LNB />
+        <Header />
         <main>
-          <PageTitle />
           <Outlet />
         </main>
       </div>

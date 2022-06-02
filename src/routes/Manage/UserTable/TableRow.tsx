@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom'
 import cx from 'classnames'
 
 import { IUserLoginData } from 'types/types'
-
 import Button from 'components/Button'
+
 import styles from './userTable.module.scss'
 
 const TableRow = ({ user }: { user: IUserLoginData }) => {

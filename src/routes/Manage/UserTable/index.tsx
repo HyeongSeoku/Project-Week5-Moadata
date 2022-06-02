@@ -3,15 +3,16 @@ import { useRecoilValue } from 'recoil'
 import cx from 'classnames'
 import dayjs from 'dayjs'
 
-import TableRow from './TableRow'
-import { searchedUserInfo } from 'store/atom'
-import { ISearchedUser } from 'types/types'
 import userLoginDataJSON from 'data/userLoginData.json'
+
+import { searchedUserInfoState } from 'states/searchedUserInfoState'
+import { ISearchedUser } from 'types/types'
+import TableRow from './TableRow'
 
 import styles from './userTable.module.scss'
 
 const UserTable = () => {
-  const searchUserInfo = useRecoilValue(searchedUserInfo)
+  const searchUserInfo = useRecoilValue(searchedUserInfoState)
 
   const filterSearchUser = (data: ISearchedUser) => {
     // 모든 검색어 입력이 안됐을 경우 모든 회원 리스트 리턴

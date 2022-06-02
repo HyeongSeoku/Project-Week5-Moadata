@@ -6,6 +6,7 @@ import stepCountData from 'data/stepCount.json'
 import SearchDate from 'components/SearchDate'
 import Chart from './Chart'
 import NeedMoreDate from '../NeedForDate'
+
 import styles from './stepCountChart.module.scss'
 
 interface IProps {

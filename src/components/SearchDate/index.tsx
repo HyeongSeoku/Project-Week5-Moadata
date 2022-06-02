@@ -1,7 +1,9 @@
 import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from 'react'
+
 import { PickedDate } from 'types/types'
-import styles from './searchDate.module.scss'
 import { getBeforeWeek, getToday } from './utils/dateCalc'
+
+import styles from './searchDate.module.scss'
 
 interface Props {
   date: PickedDate

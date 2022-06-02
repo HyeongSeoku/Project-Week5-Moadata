@@ -1,5 +1,6 @@
-import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine, VictoryTheme } from 'victory'
+import { VictoryAxis, VictoryChart, VictoryContainer, VictoryLine } from 'victory'
 import dayjs from 'dayjs'
+
 import styles from './heartRateChart.module.scss'
 
 interface IProps {

@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom'
-
 import { useRecoilValue } from 'recoil'
+
 import { userLoginDataState } from 'states'
 import HearRateChart from './HeartRateChart'
 import StepCountChart from './StepCountChart'
 import UserInfo from './UserInfo'
+
 import styles from './detail.module.scss'
 
 export const Details = () => {

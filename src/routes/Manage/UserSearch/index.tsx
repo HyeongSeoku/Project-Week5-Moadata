@@ -1,15 +1,14 @@
 import { FormEvent, ChangeEvent, useState } from 'react'
 import { useSetRecoilState } from 'recoil'
 
-import { searchedUserInfo } from '../../../store/atom'
-
+import { searchedUserInfoState } from 'states/searchedUserInfoState'
 import SearchDate from 'components/SearchDate'
 import Button from 'components/Button'
 
 import styles from './userSearch.module.scss'
 
 const UserSearch = () => {
-  const setSearchUserInfo = useSetRecoilState(searchedUserInfo)
+  const setSearchUserInfo = useSetRecoilState(searchedUserInfoState)
   const [userID, setUserID] = useState('')
   const [userNumber, setUserNumber] = useState('')
   const [date, setDate] = useState({

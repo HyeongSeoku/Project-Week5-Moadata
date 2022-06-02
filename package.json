@@ -1,5 +1,5 @@
 {
-  "name": "lever-app",
+  "name": "moadata",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,7 +27,6 @@
     ]
   },
   "dependencies": {
-    "@types/store": "^2.0.2",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.2",
@@ -43,6 +42,7 @@
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
+    "@types/store": "^2.0.2",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

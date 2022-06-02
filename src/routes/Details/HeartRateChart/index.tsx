@@ -1,11 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import dayjs from 'dayjs'
 
 import heartRateData from 'data/heartRate.json'
 
 import SearchDate from 'components/SearchDate'
-import Chart from './Chart'
 import NeedMoreDate from '../NeedForDate'
+import Chart from './Chart'
+
 import styles from './heartRateChart.module.scss'
 
 interface IProps {

@@ -33,7 +33,7 @@ const HearRateChart = ({ id }: IProps) => {
     <div className={styles.heartRateContainer}>
       <p className={styles.title}>심박수</p>
       {chartResult}
-      <SearchDate date={date} setDate={setDate} />
+      <SearchDate date={date} setDate={setDate} isColumn />
     </div>
   )
 }

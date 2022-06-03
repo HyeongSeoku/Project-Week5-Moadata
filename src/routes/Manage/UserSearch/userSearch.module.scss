@@ -46,11 +46,11 @@
 }
 
 .buttonBox {
-  @include flexbox.flexbox(right);
-  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 10px;
 
-  button {
-    margin-left: 10px;
+  button + button {
+    margin-left: 20px;
   }
 }

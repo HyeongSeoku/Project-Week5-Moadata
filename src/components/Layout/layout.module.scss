@@ -99,6 +99,11 @@ header {
 
     a {
       color: colors.$GRAY800;
+      transition: 0.2s;
+
+      &:hover {
+        color: colors.$PRIMARY;
+      }
     }
 
     .arrow {

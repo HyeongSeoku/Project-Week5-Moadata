@@ -1,28 +1,39 @@
 @use '/src/styles/constants/colors';
 
 button {
+  height: 40px;
   font-size: 16px;
-  color: colors.$WHITE;
-  background-color: colors.$PRIMARY;
-  border-radius: 5px;
+  border-radius: 8px;
 
   &.large {
     width: 100px;
-    height: 40px;
   }
 
   &.medium {
     width: 80px;
-    height: 40px;
   }
 
   &.small {
     width: 52px;
-    height: 32px;
+    height: 37px;
   }
 
-  &:active {
-    background-color: colors.$BUTTON_PRESSED;
-    opacity: 0.9;
+  &.primary {
+    color: colors.$WHITE;
+    background-color: colors.$PRIMARY;
+
+    &:active {
+      background-color: colors.$BUTTON_PRESSED;
+      opacity: 0.9;
+    }
+  }
+
+  &.secondary {
+    color: colors.$PRIMARY;
+    border: 1.5px solid colors.$PRIMARY;
+
+    &:active {
+      background-color: colors.$GRAY50;
+    }
   }
 }

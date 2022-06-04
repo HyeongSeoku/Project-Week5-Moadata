@@ -30,7 +30,7 @@ const StepCountChart = ({ id }: IProps) => {
       ) : (
         <Chart stepCountData={filteredData} date={date} />
       )}
-      <SearchDate date={date} setDate={setDate} />
+      <SearchDate date={date} setDate={setDate} isColumn />
     </div>
   )
 }

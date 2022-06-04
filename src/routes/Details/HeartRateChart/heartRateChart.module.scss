@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+
+.heartRateContainer {
+  padding: 20px 10px;
+  color: colors.$GRAY800;
+
+  .title {
+    padding: 0 20px;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .chartContainer {
+    width: 500px;
+    height: 400px;
+
+    .summary {
+      margin: 0 20px;
+
+      .date {
+        font-size: 15px;
+      }
+
+      .avg {
+        font-size: 20px;
+      }
+
+      p {
+        + p {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

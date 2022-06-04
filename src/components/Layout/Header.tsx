@@ -1,32 +1,40 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 
-import { NotiIcon, SettingIcon } from 'assets/svgs'
-import ProfileImage from 'assets/images/profile.png'
 import styles from './layout.module.scss'
 
-const Header = () => {
+const PageTitle = () => {
+  const { id } = useParams()
+  const location = useLocation()
+  const currentLocation = location.pathname
+
+  const makeTitle = () => {
+    if (currentLocation === '/') return '대시보드'
+    if (currentLocation === '/manage') return '회원 관리'
+    return '회원 상세 정보'
+  }
+
+  const title = makeTitle()
+
   return (
-    <header className={styles.header}>
-      <ul>
-        <li>
-          <button type='button' className={styles.notification} aria-label='notification'>
-            <NotiIcon />
-          </button>
-        </li>
-        <li>
-          <button type='button' aria-label='notification'>
-            <SettingIcon />
-          </button>
-        </li>
-        <li>
-          <Link to='#' className={styles.profile}>
-            <img src={ProfileImage} alt='profile' />
-            <span>원티드님</span>
-          </Link>
-        </li>
-      </ul>
+    <header>
+      <div className={styles.menuLink}>
+        <Link to='/'>홈</Link>
+        {currentLocation.startsWith('/manage') && (
+          <>
+            <span className={styles.arrow}>&gt;</span>
+            <Link to='/manage'>회원 관리</Link>
+          </>
+        )}
+        {!!id && (
+          <>
+            <span className={styles.arrow}>&gt;</span>
+            <span>회원 상세</span>
+          </>
+        )}
+      </div>
+      <h2 className='title'>{title}</h2>
     </header>
   )
 }
 
-export default Header
+export default PageTitle

@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+
+.chartContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: colors.$GRAY100;
+    border-radius: 8px;
+  }
+}

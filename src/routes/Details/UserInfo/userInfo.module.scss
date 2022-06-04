@@ -1,0 +1,27 @@
+@use 'styles/constants/colors';
+
+.userInfo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid colors.$GRAY100;
+
+  &Item {
+    display: flex;
+    gap: 8px;
+    justify-content: space-around;
+    padding: 8px 0;
+    border-right: 1px solid colors.$GRAY100;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  dt {
+    color: colors.$GRAY300;
+  }
+
+  dd {
+    color: colors.$GRAY800;
+  }
+}

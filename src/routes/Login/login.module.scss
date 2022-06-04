@@ -1,0 +1,122 @@
+@use 'styles/mixins/flexbox';
+@use 'styles/mixins/position';
+@use 'styles/mixins/responsive';
+@use 'styles/constants/colors';
+@use 'styles/constants/levels';
+
+.loginBackground {
+  @include flexbox.flexbox(center, center);
+  width: 100vw;
+  height: 100vh;
+
+  &::before {
+    @include position.fixed(0);
+    z-index: levels.$BACKGROUND_IMAGE;
+    width: 100vw;
+    height: 100vh;
+    content: '';
+    background-image: url('/assets/imgs/office.webp');
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.8;
+    transform: scale(110%);
+  }
+}
+
+.loginWrapper {
+  @include flexbox.flexbox(start, center);
+  flex-direction: row;
+  width: 640px;
+  height: 480px;
+  background-color: colors.$WHITE;
+  border-radius: 8px;
+  box-shadow: 0 10px 10px 5px rgba(colors.$GRAY800, 20%);
+
+  @include responsive.mobileOnly {
+    flex-direction: column;
+    width: 80vw;
+    height: 80vh;
+
+    .loginMain,
+    .loginForm {
+      @include flexbox.flexbox(center, center);
+    }
+  }
+}
+
+.loginMain {
+  @include flexbox.flexbox(center, center);
+  flex: 1;
+  flex-direction: column;
+
+  span {
+    color: colors.$GRAY300;
+    text-align: left;
+    text-decoration: underline;
+  }
+}
+
+.loginForm {
+  @include flexbox.flexbox(center, start);
+  flex-direction: column;
+
+  .loginInput {
+    width: 200px;
+    height: 40px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    border-bottom: 2px solid colors.$GRAY300;
+
+    &::placeholder {
+      color: colors.$GRAY100;
+    }
+  }
+
+  .loginFailed {
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: colors.$WARNING;
+  }
+}
+
+.loginBottom {
+  @include flexbox.flexbox(start, center);
+  flex-direction: row;
+  width: 100%;
+  margin: 10px 0 20px;
+
+  input {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 2px solid colors.$GRAY100;
+
+    &:checked {
+      background-color: colors.$PRIMARY;
+      box-shadow: inset 0 0 0 2px colors.$WHITE;
+    }
+  }
+
+  label {
+    margin-right: 20px;
+    font-size: 15px;
+    line-height: 20px;
+    color: colors.$GRAY800;
+  }
+
+  .loginButton {
+    @include flexbox.flexbox(center, center);
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    color: colors.$WHITE;
+    background-color: colors.$PRIMARY;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: colors.$BUTTON_PRESSED;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use '/src/styles/constants/colors';
+@use 'styles/mixins/flexbox';
+
+.searchTitle {
+  margin-bottom: 18px;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+  color: colors.$GRAY300;
+  text-align: center;
+
+  .inputItem {
+    display: flex;
+  }
+}
+
+.title {
+  width: 100px;
+  min-width: 65px;
+  height: 37px;
+  margin-right: 10px;
+  line-height: 44px;
+  border-radius: 8px;
+}
+
+.input {
+  width: 180px;
+  height: 37px;
+  padding-left: 10px;
+  border-bottom: 1px solid colors.$GRAY100;
+
+  &::placeholder {
+    padding-right: 10px;
+    color: colors.$GRAY100;
+    text-align: center;
+  }
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  button + button {
+    margin-left: 20px;
+  }
+}

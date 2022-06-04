@@ -1,3 +1,11 @@
+import UserSearch from './UserSearch'
+import UserTable from './UserTable'
+
 export const Manage = () => {
-  return <div />
+  return (
+    <>
+      <UserSearch />
+      <UserTable />
+    </>
+  )
 }

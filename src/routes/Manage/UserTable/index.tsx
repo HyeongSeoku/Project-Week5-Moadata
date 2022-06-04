@@ -32,7 +32,7 @@ const UserTable = () => {
       if (!dateKeyword.start && !dateKeyword.end) return true
       if (
         targetDate >= dayjs(dateKeyword.start).format('YYYY-MM-DD') &&
-        targetDate <= dayjs(dateKeyword.end).format('YYYY-MM-DD')
+        targetDate <= dayjs(dateKeyword.end).add(1, 'd').format('YYYY-MM-DD')
       )
         return true
       return false

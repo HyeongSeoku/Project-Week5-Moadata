@@ -6,6 +6,8 @@
 <h2 align="center"><a href="
 4team-moadata.netlify.app">배포 페이지</a></h2>
 
+<h3 align="center"><a href="https://github.com/Wanted-FOB-Group4/Project-Week5-Moadata/blob/dev/Testcase.md">테스트케이스 명세</a></h3>
+
 # 과제 설명
 
 ## 실행 방법
